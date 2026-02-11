@@ -1,0 +1,16 @@
+[general]
+name=Slope Stability Analysis (Bishop)
+qgisMinimumVersion=3.0
+description=Automated slope stability analysis using Bishop's Simplified Method with PSO.
+version=1.0
+author=yoshi
+email=yoshi.hml@gmail.com
+about=Performs circular slip surface analysis. Supports General Scan and Event-Based (Kh + Water Table) modes.
+tracker=https://github.com/
+repository=https://github.com/
+type=plugins
+tags=geology, analysis, engineering
+homepage=https://www.geoharvester.com
+category=Analysis
+icon=icon.png
+experimental=False

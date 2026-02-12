@@ -1,0 +1,16 @@
+[general]
+name=QGIS Slope Stability Analysis
+qgisMinimumVersion=3.0
+description=A geotechnical engineering tool for 2D slope stability analysis within QGIS. It implements Bishop's Simplified Method to calculate the Factor of Safety (FS) for circular slip surfaces. Features include 1. Automated grid search for critical slip surfaces. 2. Support for multi-layer geology (Polygon layers with cohesion, phi, unit_weight). 3. Pore pressure calculation via custom Water Table layers (LineString). 4. Pseudo-static seismic analysis (Kh). 5. Test data(geo model layer: testdata_geomodel.geojson, water level layer:testdata_water_level_event.geojson) included.6. Shapely and NumPy libraries (Included in standard QGIS installations).Designed for civil engineers and geologists to perform rapid safety assessments directly on GIS geometry.
+version=1.3
+author=聚禾工程顧問有限公司
+email=yoshi.hml@gmail.com
+about=This program was developed with the assistance of Gemini and is a QGIS plugin. It features dual-mode analysis: a complete loop including "General" and "Event" modes. Users can select the geological model layer and groundwater level layer, and execute the program after inputting seismic coefficients. It will list all possible failure surfaces and their respective safety factors (FS).
+tracker=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis
+repository=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis
+type=plugins
+tags=geology, analysis, engineering, Slope, stability
+homepage=https://www.facebook.com/GeoHarvester?locale=zh_TW
+category=Analysis
+icon=icon.png
+experimental=False

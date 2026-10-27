@@ -1,3 +1,33 @@
 # QGIS-Slope-Stability-Analysis
-This program was developed with the assistance of Gemini and is a QGIS plugin. It features dual-mode analysis: a complete loop including "General" and "Event" modes. Users can select the geological model layer and groundwater level layer, and execute the program after inputting seismic coefficients. It will list all possible failure surfaces and their respective safety factors (FS).
-這個程式是由Gemini 協助完成開發. 為QGIS plugin.本程式具備雙模式分析：包含「廣域掃描 (General)」與「事件分析 (Event)」的完整迴圈.使用者可選擇地質模型圖層,地下水位圖層,於輸入地震係數後執行.會完整列出所有可能的破壞面及其安全係數(FS).
+
+QGIS plugin for 2-D limit equilibrium slope stability analysis (version 3.1). The plugin source is in [`SlopeStabilityPlugin/`](SlopeStabilityPlugin/); see [`SlopeStabilityPlugin/README.md`](SlopeStabilityPlugin/README.md) for the developer notes.
+
+QGIS 二維極限平衡邊坡穩定分析外掛（3.1 版）。外掛原始碼位於 [`SlopeStabilityPlugin/`](SlopeStabilityPlugin/)。
+
+## Features / 功能
+
+* 8 methods of slices / 8 種切片法: Ordinary (Fellenius), Bishop, Janbu (f0), Corps of Engineers #1/#2, Lowe-Karafiath, Spencer, Morgenstern-Price
+* Critical surface search / 臨界滑動面搜尋: circular grid, entry-exit, non-circular path search, optimisation, user-defined surfaces
+* **Crack point analysis / 裂隙點分析**: pick a crack or scarp on the ground in the map; circular and non-circular slip surfaces starting there are analysed / 在地圖上點選地表裂隙，由該點向下延伸滑動面並計算安全係數
+* Materials / 材料: Mohr-Coulomb, undrained Su, Hoek-Brown
+* Water, surcharge, tension crack, seismic kh/kv, reinforcement, piles / retaining walls / 地下水、載重、張力裂縫、地震、加勁材、樁與擋土牆
+* Parametric kh × water depth scan (v2 "General Scan"), Monte Carlo and Taylor series reliability / 參數掃描、可靠度分析
+* Styled GeoPackage output, HTML report, Processing algorithm / 成果圖層、HTML 報告、處理工具箱
+* 9 languages following the QGIS locale / 9 種語言，依 QGIS 介面語言切換: English, 繁體中文, 简体中文, 日本語, 한국어, Español, Français, Deutsch, Português
+* QGIS 3.28 – 4.x
+
+## Quick start / 快速開始
+
+1. Install from the QGIS plugin manager (*QGIS Slope Stability Analysis*) or zip the `SlopeStabilityPlugin` folder and use *Install from ZIP*.
+2. *Plugins ▸ Slope Stability ▸ Load sample data* / 外掛 ▸ 邊坡穩定分析 ▸ 載入範例資料
+3. *Slope stability analysis…* or the toolbar button *Pick a crack point and analyse…*
+
+User guide / 使用說明: `SlopeStabilityPlugin/docs/user_guide_en.html`, `SlopeStabilityPlugin/docs/user_guide_zh_TW.html`.
+The PDF at the repository root is the manual of version 1.x / 根目錄的 PDF 為 1.x 版手冊。
+
+## History / 開發紀錄
+
+Versions 1.x–2.x were developed with the assistance of Gemini; version 3 was developed with the assistance of Claude.
+1.x–2.x 版由 Gemini 協助開發；3 版由 Claude 協助開發。
+
+License: GPL v2 or later.

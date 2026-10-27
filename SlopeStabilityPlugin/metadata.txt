@@ -1,16 +1,44 @@
 [general]
 name=QGIS Slope Stability Analysis
-qgisMinimumVersion=3.0
-description=A geotechnical engineering tool for 2D slope stability analysis within QGIS. It implements Bishop's Simplified Method to calculate the Factor of Safety (FS) for circular slip surfaces. Features include 1. Automated grid search for critical slip surfaces. 2. Support for multi-layer geology (Polygon layers with cohesion, phi, unit_weight). 3. Pore pressure calculation via custom Water Table layers (LineString). 4. Pseudo-static seismic analysis (Kh). 5. Test data(geo model layer: testdata_geomodel.geojson, water level layer:testdata_water_level_event.geojson) included.6. Shapely and NumPy libraries (Included in standard QGIS installations).Designed for civil engineers and geologists to perform rapid safety assessments directly on GIS geometry.
-version=1.3
+qgisMinimumVersion=3.28
+qgisMaximumVersion=4.99
+description=2D slope stability analysis by limit equilibrium methods (Bishop, Janbu, Spencer, Morgenstern-Price and more) with circular and non-circular critical slip surface search.
+description[zh_TW]=以極限平衡法（Bishop、Janbu、Spencer、Morgenstern-Price 等）進行二維邊坡穩定分析，支援圓弧與非圓弧臨界滑動面搜尋。
+description[zh_CN]=以极限平衡法（Bishop、Janbu、Spencer、Morgenstern-Price 等）进行二维边坡稳定分析，支持圆弧与非圆弧临界滑动面搜索。
+description[ja]=極限平衡法（Bishop、Janbu、Spencer、Morgenstern-Price など）による二次元斜面安定解析。円弧・非円弧の臨界すべり面探索に対応。
+description[ko]=한계평형법(Bishop, Janbu, Spencer, Morgenstern-Price 등)을 이용한 2차원 사면안정해석. 원호 및 비원호 임계 활동면 탐색 지원.
+description[es]=Análisis bidimensional de estabilidad de taludes por métodos de equilibrio límite (Bishop, Janbu, Spencer, Morgenstern-Price y otros) con búsqueda de superficies de falla circulares y no circulares.
+description[fr]=Analyse bidimensionnelle de la stabilité des pentes par les méthodes de l'équilibre limite (Bishop, Janbu, Spencer, Morgenstern-Price, etc.) avec recherche de surfaces de rupture circulaires et non circulaires.
+description[de]=2D-Böschungsbruchberechnung mit Grenzgleichgewichtsverfahren (Bishop, Janbu, Spencer, Morgenstern-Price u. a.) mit Suche nach kreisförmigen und nicht kreisförmigen Gleitflächen.
+description[pt]=Análise bidimensional de estabilidade de taludes por métodos de equilíbrio limite (Bishop, Janbu, Spencer, Morgenstern-Price e outros) com busca de superfícies de ruptura circulares e não circulares.
+about=A geotechnical tool for 2D slope stability analysis inside QGIS, inspired by the feature set of XSLOPE. Methods of slices: Ordinary (Fellenius), Bishop simplified, Janbu simplified (with f0 correction), Corps of Engineers #1 and #2, Lowe-Karafiath, Spencer and Morgenstern-Price. Critical surface search: circular grid search, circular entry-exit search, non-circular path search, Nelder-Mead and vertex optimisation, user-defined surfaces, and crack point analysis (pick a crack on the ground and analyse slip surfaces starting there). Inputs drawn as QGIS layers in section coordinates (x = distance, y = elevation): multi-material geology polygons (Mohr-Coulomb, undrained Su, Hoek-Brown), piezometric line or ru, distributed surcharge, tension crack with water, pseudo-static seismic loading (kh, kv), reinforcement (geogrids, nails, anchors with pull-out) and piles / retaining walls. Parametric scan of kh and water table depth, Monte Carlo and Taylor series reliability analysis, HTML report, styled GeoPackage results and a Processing algorithm for batch and model use. The interface and report follow the QGIS language (English, Traditional Chinese, Simplified Chinese, Japanese, Korean, Spanish, French, German, Portuguese). Requires numpy and shapely, which are included in the standard QGIS installers. Earlier versions were developed with the assistance of Gemini; version 3 was developed with the assistance of Claude.
+version=3.1.0
 author=聚禾工程顧問有限公司
 email=yoshi.hml@gmail.com
-about=This program was developed with the assistance of Gemini and is a QGIS plugin. It features dual-mode analysis: a complete loop including "General" and "Event" modes. Users can select the geological model layer and groundwater level layer, and execute the program after inputting seismic coefficients. It will list all possible failure surfaces and their respective safety factors (FS).
-tracker=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis
+tracker=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis/issues
 repository=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis
-type=plugins
-tags=geology, analysis, engineering, Slope, stability
-homepage=https://www.facebook.com/GeoHarvester?locale=zh_TW
+homepage=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis
 category=Analysis
 icon=icon.png
+tags=geology, geotechnical, engineering, slope, stability, landslide, limit equilibrium, bishop, spencer, morgenstern-price, retaining wall, reliability, processing
+hasProcessingProvider=yes
 experimental=False
+deprecated=False
+changelog=
+    3.1.0
+    * Crack point analysis: pick a crack / scarp on the ground in the map; circular and non-circular slip surfaces are generated from that point downslope and the factor of safety computed (toolbar tool, dialog and Processing)
+    * Sample data now includes distributed loads, reinforcement (soil nails) and user-defined slip surfaces
+    3.0.0
+    * New engine with 8 limit equilibrium methods: Ordinary, Bishop, Janbu (f0), Corps of Engineers #1/#2, Lowe-Karafiath, Spencer, Morgenstern-Price
+    * Circular grid and entry-exit searches with Nelder-Mead optimisation; non-circular path search with surface optimisation; user-defined surfaces
+    * Strength models: Mohr-Coulomb, undrained (Su), Hoek-Brown; saturated unit weight; ru
+    * Distributed loads, tension crack (with water), kv, reinforcement with pull-out, piles / walls (active or passive)
+    * Parametric scan (replaces the v2 General Scan), Monte Carlo and Taylor series reliability
+    * Slice layer, search-centre layer, FS-classified styling, HTML report with cross-section
+    * Processing algorithm for batch processing and the Model Designer
+    * Multi-language interface (9 languages) following the QGIS locale
+    * Compatible with QGIS 3.28+ and QGIS 4 (Qt5 / Qt6)
+    2.1
+    * Retaining wall structural reinforcement in Bishop's method, search density control
+    2.0
+    * QGIS 4 / PyQt6 compatibility

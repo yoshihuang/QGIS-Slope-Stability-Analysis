@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slope Stability – User Guide</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Noto Sans',sans-serif;max-width:920px;margin:24px auto;padding:0 16px;line-height:1.5;color:#222}
+h1{font-size:26px}h2{border-bottom:2px solid #2b5c8f;padding-bottom:3px;margin-top:32px;font-size:20px}h3{font-size:16px}
+table{border-collapse:collapse;margin:8px 0;font-size:14px}th,td{border:1px solid #ccc;padding:4px 8px;text-align:left;vertical-align:top}th{background:#eef3f8}
+code{background:#f3f3f3;padding:1px 4px;border-radius:3px}.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:8px 12px}
+</style></head><body>
+<h1>QGIS Slope Stability Analysis 3.0 – User Guide</h1>
+<p>Two-dimensional limit equilibrium slope stability analysis inside QGIS. The model is drawn as ordinary QGIS layers in <b>section coordinates</b>: <code>x</code> = horizontal distance, <code>y</code> = elevation, both in metres.</p>
+
+<h2>1. Quick start</h2>
+<ol>
+<li><b>Plugins ▸ Slope Stability ▸ Load sample data</b> adds a two-layer geology model, a piezometric line, a retaining wall, distributed loads (a building, q = 25 kPa, and a road, q = 12 kPa), four soil nails (T = 180 kN/m, pull-out 45 kN/m/m) and two user-defined slip surfaces (an arc and a weak-layer path). Select the corresponding layers in the dialog to try each feature.</li>
+<li>Open <b>Slope stability analysis…</b>, choose the geology layer (and optionally the piezometric line), click <b>Check inputs</b>, then <b>Run analysis</b>.</li>
+<li>The results are added in a new layer group: critical slip surface (labelled with FS), all stored slip surfaces coloured by FS, slices of the critical surface and search-grid centres. An HTML report opens in the browser.</li>
+</ol>
+
+<h2>2. Input layers</h2>
+<table>
+<tr><th>Layer</th><th>Geometry</th><th>Fields (not case-sensitive)</th></tr>
+<tr><td>Geology / materials <b>(required)</b></td><td>Polygon</td><td><b>unit_weight</b> (kN/m³), <b>cohesion</b> (kPa), <b>phi</b> (°) – required.<br>
+Optional: <code>name</code>/<code>layer_name</code>, <code>unit_weight_sat</code>, <code>model</code> (<code>mc</code>, <code>undrained</code>, <code>hb</code>, <code>none</code>), Hoek-Brown <code>sigci</code> (kPa), <code>gsi</code>, <code>mi</code>, <code>d</code>; <code>ru</code>; <code>piezo</code> (0 = ignore the piezometric line in this material); <code>c_std</code>, <code>phi_std</code>, <code>gamma_std</code> for reliability.</td></tr>
+<tr><td>Piezometric line</td><td>Line</td><td>– (u = γw × vertical distance below the line; ponded water above the ground is applied as a surface pressure)</td></tr>
+<tr><td>Distributed loads</td><td>Line</td><td><code>q</code> (kPa, vertical, over the horizontal extent of the line)</td></tr>
+<tr><td>Reinforcement</td><td>Line</td><td><code>T</code> capacity (kN/m), <code>pullout</code> (kN/m per m behind the slip surface, 0 = unlimited), <code>mode</code> (<code>passive</code>/<code>active</code>)</td></tr>
+<tr><td>Piles / retaining walls</td><td>Any</td><td><code>V</code> shear resistance (kN/m), <code>mode</code>. Applied where the slip surface cuts the feature.</td></tr>
+<tr><td>User-defined slip surfaces</td><td>Line</td><td>– Each line is analysed; arcs are recognised as circles.</td></tr>
+</table>
+<p>Missing fields on load / reinforcement / pile layers take the default values on the <i>Loads &amp; supports</i> tab. Fields of version 2.x (<code>cohesion</code>, <code>phi</code>, <code>unit_weight</code>) work unchanged.</p>
+
+<h2>3. Analysis options</h2>
+<h3>Methods of slices</h3>
+<table>
+<tr><th>Method</th><th>Equilibrium</th><th>Interslice assumption</th></tr>
+<tr><td>Ordinary (Fellenius)</td><td>Moment</td><td>Ignored (circular only)</td></tr>
+<tr><td>Bishop simplified</td><td>Moment</td><td>Horizontal (circular only)</td></tr>
+<tr><td>Janbu simplified</td><td>Horizontal force</td><td>Horizontal, with correction factor f0</td></tr>
+<tr><td>Corps of Engineers #1 / #2</td><td>Force</td><td>Parallel to entry–exit chord / ground surface</td></tr>
+<tr><td>Lowe-Karafiath</td><td>Force</td><td>Average of ground and base slope</td></tr>
+<tr><td>Spencer</td><td>Moment + force</td><td>Constant inclination (λ)</td></tr>
+<tr><td>Morgenstern-Price</td><td>Moment + force</td><td>λ·f(x), half-sine f(x)</td></tr>
+</table>
+<p>The <b>search method</b> evaluates every trial surface; all ticked methods are then computed on each critical surface.</p>
+<h3>Slip surface search</h3>
+<ul>
+<li><b>Circular – grid search</b>: grid of centres × tangent (depth) levels, then Nelder-Mead optimisation of (x, y, R).</li>
+<li><b>Circular – entry and exit</b>: circles through entry points on the crest and exit points at the toe.</li>
+<li><b>Non-circular – path search</b>: random kinematically admissible paths (concave, exit no steeper than 45°) followed by vertex optimisation. Uses Spencer if a circular-only method is selected.</li>
+<li><b>User-defined</b>: only the surfaces of the user layer.</li>
+<li><b>From a crack point picked on the map</b>: see section 3a.</li>
+</ul>
+<p>Search density 100 % ≈ 3 500 circles (grid). The direction of sliding is detected automatically. Surfaces ending at the left/right model edge are ignored by default (extend the model if the critical surface reaches it).</p>
+<h2>3a. Crack point analysis</h2>
+<p>Use this when a tension crack or scarp is observed on the ground and you want the factor of safety of slides that start there.</p>
+<ol>
+<li>Click the toolbar button <b>Pick a crack point and analyse…</b> (or, in the dialog, <i>Analysis ▸ Surface type ▸ From a crack point picked on the map ▸ Pick on map</i>).</li>
+<li>Click the ground surface at the crack in the section view. Only the x coordinate is used; the point is projected vertically onto the ground. Right click or Esc cancels.</li>
+<li>The dialog opens with the point filled in. Run the analysis.</li>
+</ol>
+<p>All trial surfaces start at the crack and extend downslope: circles through the crack point and every possible exit point, and random non-circular paths from the crack; the best ones are then optimised with the entry kept fixed. Circular surfaces use the search method, non-circular ones Spencer if the search method is circular-only. The critical surface, all stored surfaces and a <code>crack_point</code> marker layer are added to the map. Combine with a <i>Tension crack</i> depth to model an open crack (water-filled if required).</p>
+<h3>Scenarios</h3>
+<p>The <b>parametric scan</b> replaces the v2 <i>General Scan</i>: every combination of kh values and water table depths (water table parallel to the ground surface, <code>dry</code> = no water) is searched and stored with its scenario name (e.g. <code>Scan_Kh0.1_D15m</code>).</p>
+<h3>Reliability</h3>
+<p>For materials with <code>c_std</code>, <code>phi_std</code> or <code>gamma_std</code>, the critical surface of the main analysis is evaluated with Monte Carlo simulation (normal distributions) and the Taylor series method (lognormal FS, Duncan 2000). The report lists the probability of failure P<sub>f</sub>, the reliability index β and each variable's share of the variance.</p>
+
+<h2>4. Outputs</h2>
+<table>
+<tr><th>Layer</th><th>Content</th></tr>
+<tr><td>critical_surface</td><td>Critical surface per scenario with FS of every method, λ (Spencer, M-P), centre, radius, entry/exit.</td></tr>
+<tr><td>slip_surfaces</td><td>Lowest-FS surfaces (default 300 per scenario), graduated colours: &lt;1.0 red, 1.0–1.2 orange, 1.2–1.5 yellow, 1.5–2.0 light green, &gt;2.0 green.</td></tr>
+<tr><td>slices</td><td>Slice polygons of each critical surface: weight, α, c, φ, u, N′, σ′n, mobilised shear.</td></tr>
+<tr><td>crack_point</td><td>Picked crack point and its minimum FS (crack point analysis only).</td></tr>
+<tr><td>search_centers</td><td>Minimum FS at each grid centre (hidden by default; useful for FS contours).</td></tr>
+</table>
+<p>Leave the GeoPackage path empty for temporary layers. The analysis is also available in the <b>Processing Toolbox ▸ Slope Stability</b> (batch processing, Model Designer).</p>
+
+<h2>5. Language</h2>
+<p>The interface and report follow the QGIS interface language (<i>Settings ▸ Options ▸ General ▸ User interface translation</i>): English, 繁體中文, 简体中文, 日本語, 한국어, Español, Français, Deutsch, Português. It can be overridden on the <i>Output</i> tab.</p>
+
+<h2>6. Limitations</h2>
+<ul>
+<li>2-D limit equilibrium, plane strain, unit width. No finite element seepage or strength reduction (planned).</li>
+<li>Pore pressures from a piezometric line or ru only (no seepage analysis, no rapid drawdown).</li>
+<li>Geology polygons should share boundaries without gaps or overlaps (<b>Check inputs</b> warns about both).</li>
+</ul>
+<p class="note">Results must be checked by a qualified engineer. The solver was verified against ACADS example 1(a) (Bishop 0.985, Spencer 0.984; reference ≈ 0.99–1.00), the infinite slope (dry, seismic, seepage) and Taylor's undrained vertical cut.</p>
+</body></html>

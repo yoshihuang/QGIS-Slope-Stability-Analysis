@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>邊坡穩定分析 – 使用說明</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Noto Sans TC','Microsoft JhengHei',sans-serif;max-width:920px;margin:24px auto;padding:0 16px;line-height:1.6;color:#222}
+h1{font-size:26px}h2{border-bottom:2px solid #2b5c8f;padding-bottom:3px;margin-top:32px;font-size:20px}h3{font-size:16px}
+table{border-collapse:collapse;margin:8px 0;font-size:14px}th,td{border:1px solid #ccc;padding:4px 8px;text-align:left;vertical-align:top}th{background:#eef3f8}
+code{background:#f3f3f3;padding:1px 4px;border-radius:3px}.note{background:#fff8e1;border-left:4px solid #f1c40f;padding:8px 12px}
+</style></head><body>
+<h1>QGIS 邊坡穩定分析 3.0 – 使用說明</h1>
+<p>在 QGIS 內進行二維極限平衡邊坡穩定分析。模型以一般 QGIS 圖層繪製於<b>剖面坐標</b>：<code>x</code> = 水平距離、<code>y</code> = 高程，單位皆為公尺。</p>
+
+<h2>1. 快速開始</h2>
+<ol>
+<li><b>外掛 ▸ 邊坡穩定分析 ▸ 載入範例資料</b>：加入兩層地質模型、地下水位線、擋土牆、分布載重（建築物 q = 25 kPa、道路 q = 12 kPa）、四支土釘（T = 180 kN/m、拉拔阻抗 45 kN/m/m）及兩條使用者自訂滑動面（圓弧與軟弱層路徑）。在對話框中選取對應圖層即可試用各項功能。</li>
+<li>開啟 <b>邊坡穩定分析…</b>，選擇地質圖層（可另選地下水位線），按 <b>檢查輸入</b>，再按 <b>執行分析</b>。</li>
+<li>成果會加入新的圖層群組：臨界滑動面（標示 FS）、依 FS 分色的滑動面、臨界滑動面切片、搜尋格網圓心；並在瀏覽器開啟 HTML 報告。</li>
+</ol>
+
+<h2>2. 輸入圖層</h2>
+<table>
+<tr><th>圖層</th><th>幾何</th><th>欄位（不分大小寫）</th></tr>
+<tr><td>地質 / 材料 <b>（必要）</b></td><td>面</td><td><b>unit_weight</b>（kN/m³）、<b>cohesion</b>（kPa）、<b>phi</b>（°）為必要欄位。<br>
+選填：<code>name</code>/<code>layer_name</code>、<code>unit_weight_sat</code>（飽和單位重）、<code>model</code>（<code>mc</code>、<code>undrained</code>、<code>hb</code>、<code>none</code>）、Hoek-Brown 參數 <code>sigci</code>（kPa）、<code>gsi</code>、<code>mi</code>、<code>d</code>；<code>ru</code>；<code>piezo</code>（0 = 此材料不套用地下水位線）；可靠度分析用 <code>c_std</code>、<code>phi_std</code>、<code>gamma_std</code>。</td></tr>
+<tr><td>地下水位線</td><td>線</td><td>–（u = γw × 至水位線的垂直距離；地表以上的積水以地表水壓作用）</td></tr>
+<tr><td>分布載重</td><td>線</td><td><code>q</code>（kPa，垂直，作用於線的水平範圍）</td></tr>
+<tr><td>加勁材</td><td>線</td><td><code>T</code> 抗拉強度（kN/m）、<code>pullout</code>（滑動面後方每公尺拉拔阻抗，0 = 不限制）、<code>mode</code>（<code>passive</code> 被動 / <code>active</code> 主動）</td></tr>
+<tr><td>樁 / 擋土牆</td><td>任意</td><td><code>V</code> 抗剪力（kN/m）、<code>mode</code>。於滑動面切過該圖徵處作用。</td></tr>
+<tr><td>使用者自訂滑動面</td><td>線</td><td>– 每條線皆會分析；圓弧會自動辨識為圓。</td></tr>
+</table>
+<p>載重、加勁材、樁圖層缺少欄位時，採用「載重與支撐」分頁的預設值。2.x 版的欄位（<code>cohesion</code>、<code>phi</code>、<code>unit_weight</code>）可直接沿用。</p>
+
+<h2>3. 分析設定</h2>
+<h3>切片法</h3>
+<table>
+<tr><th>方法</th><th>平衡條件</th><th>切片間力假設</th></tr>
+<tr><td>瑞典法（Fellenius）</td><td>力矩</td><td>忽略（僅圓弧）</td></tr>
+<tr><td>Bishop 簡化法</td><td>力矩</td><td>水平（僅圓弧）</td></tr>
+<tr><td>Janbu 簡化法</td><td>水平力</td><td>水平，含修正係數 f0</td></tr>
+<tr><td>美國陸軍工兵團法 #1 / #2</td><td>力</td><td>平行於進出點連線 / 地表</td></tr>
+<tr><td>Lowe-Karafiath</td><td>力</td><td>地表與滑動面坡度平均</td></tr>
+<tr><td>Spencer</td><td>力矩 + 力</td><td>固定傾角（λ）</td></tr>
+<tr><td>Morgenstern-Price</td><td>力矩 + 力</td><td>λ·f(x)，半正弦函數</td></tr>
+</table>
+<p><b>搜尋所用方法</b>用來計算每個試算滑動面；找到臨界滑動面後，再以所有勾選的方法計算。</p>
+<h3>滑動面搜尋</h3>
+<ul>
+<li><b>圓弧 - 格網搜尋</b>：圓心格網 × 切線（深度）層次，再以 Nelder-Mead 最佳化 (x, y, R)。</li>
+<li><b>圓弧 - 進入點與滑出點</b>：通過坡頂進入點與坡趾滑出點的圓弧。</li>
+<li><b>非圓弧 - 路徑搜尋</b>：隨機產生符合運動條件的路徑（下凹、滑出角不陡於 45°），再進行節點最佳化。若選擇僅適用圓弧的方法，將改用 Spencer。</li>
+<li><b>僅分析使用者自訂滑動面</b>。</li>
+<li><b>由地圖點選的裂隙點</b>：見第 3a 節。</li>
+</ul>
+<p>搜尋密度 100 % 約 3,500 個圓弧（格網搜尋）。滑動方向自動判斷。預設忽略端點位於模型左右邊界的滑動面（若臨界面碰到邊界，請加大模型範圍）。</p>
+<h2>3a. 裂隙點分析</h2>
+<p>當現場地表發現張力裂隙或崩崖，想評估由該處開始滑動的安全係數時使用。</p>
+<ol>
+<li>按工具列按鈕 <b>點選裂隙點並分析…</b>（或在對話框中：<i>分析設定 ▸ 滑動面型式 ▸ 由地圖點選的裂隙點 ▸ 在地圖上點選</i>）。</li>
+<li>在剖面圖上點選裂隙所在的地表位置。只使用 x 坐標，點會垂直投影至地表。按右鍵或 Esc 取消。</li>
+<li>對話框開啟並已填入點位，執行分析即可。</li>
+</ol>
+<p>所有試算滑動面皆由裂隙點開始並向下坡延伸：包括通過裂隙點與各可能滑出點的圓弧，以及由裂隙點出發的隨機非圓弧路徑；最佳者再於固定進入點的條件下最佳化。圓弧面使用「搜尋所用方法」，非圓弧面在該方法僅適用圓弧時改用 Spencer。臨界滑動面、所有保留的滑動面及 <code>crack_point</code> 標記圖層會加入地圖。可搭配「張力裂縫」深度模擬張開（必要時充水）的裂縫。</p>
+<h3>情境</h3>
+<p><b>參數掃描</b>取代 v2 的「通用矩陣掃描」：kh 值與地下水位深度（與地表平行，<code>dry</code> = 無水）的每種組合都會搜尋，並以情境名稱儲存（例如 <code>Scan_Kh0.1_D15m</code>）。</p>
+<h3>可靠度</h3>
+<p>材料若有 <code>c_std</code>、<code>phi_std</code> 或 <code>gamma_std</code>，將對主要分析的臨界滑動面進行蒙地卡羅模擬（常態分布）與泰勒級數法（FS 對數常態，Duncan 2000）。報告列出破壞機率 P<sub>f</sub>、可靠度指標 β 及各變數的變異數貢獻比例。</p>
+
+<h2>4. 輸出成果</h2>
+<table>
+<tr><th>圖層</th><th>內容</th></tr>
+<tr><td>critical_surface</td><td>各情境的臨界滑動面，含所有方法的 FS、λ（Spencer、M-P）、圓心、半徑、進出點。</td></tr>
+<tr><td>slip_surfaces</td><td>FS 最低的滑動面（預設每情境 300 條），分級顏色：&lt;1.0 紅、1.0–1.2 橘、1.2–1.5 黃、1.5–2.0 淺綠、&gt;2.0 綠。</td></tr>
+<tr><td>slices</td><td>臨界滑動面切片：重量、α、c、φ、u、N′、σ′n、發揮剪力。</td></tr>
+<tr><td>crack_point</td><td>點選的裂隙點及其最小 FS（僅裂隙點分析）。</td></tr>
+<tr><td>search_centers</td><td>各格網圓心的最小 FS（預設隱藏，可製作 FS 等值線）。</td></tr>
+</table>
+<p>GeoPackage 路徑留空則產生暫存圖層。本分析也可在 <b>處理工具箱 ▸ Slope Stability</b> 中使用（批次處理、模型設計器）。</p>
+
+<h2>5. 語言</h2>
+<p>介面與報告語言依 QGIS 介面語言（<i>設定 ▸ 選項 ▸ 一般 ▸ 使用者介面翻譯</i>）自動切換：English、繁體中文、简体中文、日本語、한국어、Español、Français、Deutsch、Português；也可在「輸出」分頁手動指定。</p>
+
+<h2>6. 限制</h2>
+<ul>
+<li>二維極限平衡、平面應變、單位寬度。尚未提供有限元素滲流與強度折減法（規劃中）。</li>
+<li>孔隙水壓僅由地下水位線或 ru 計算（無滲流分析、無急速洩降）。</li>
+<li>地質多邊形應共用邊界、無空隙或重疊（「檢查輸入」會提出警告）。</li>
+</ul>
+<p class="note">分析成果須由合格工程師審核。本程式已以 ACADS 範例 1(a)（Bishop 0.985、Spencer 0.984；參考值約 0.99–1.00）、無限邊坡（乾燥、地震、滲流）及 Taylor 不排水垂直開挖驗證。</p>
+</body></html>

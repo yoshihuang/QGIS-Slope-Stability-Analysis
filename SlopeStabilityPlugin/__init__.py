@@ -1,19 +1,23 @@
-    # 在 slope_stability_plugin.py 或 __init__.py 開頭加入
+# -*- coding: utf-8 -*-
+"""QGIS Slope Stability Analysis plugin."""
+
 
 def classFactory(iface):
     try:
-        import numpy
-        import shapely
+        import numpy  # noqa: F401
+        import shapely  # noqa: F401
     except ImportError as e:
         from qgis.PyQt.QtWidgets import QMessageBox
-        QMessageBox.critical(
-            None, 
-            "Missing Dependencies",
-            f"Your QGIS Python environment is missing required libraries to run this plugin.\n\nError message: {str(e)}\n\nPlease ensure you are using a standard QGIS installation."
-        )
-        # 這裡可以回傳一個空物件或 Dummy，防止 QGIS 載入錯誤
-        # 但通常直接拋出錯誤讓使用者知道會比較好
-        raise e
+        from qgis.PyQt.QtCore import QCoreApplication
 
-    from .slope_stability_plugin import SlopeStabilityPlugin
+        def tr(s):
+            return QCoreApplication.translate("SlopeStability", s)
+        QMessageBox.critical(
+            None, tr("Missing dependencies"),
+            tr("The Slope Stability plugin needs the Python libraries numpy and shapely, "
+               "which are included in the standard QGIS installers (OSGeo4W, macOS, Flatpak). "
+               "On Linux install the package python3-shapely.") + "\n\n" + str(e))
+        raise
+
+    from .plugin import SlopeStabilityPlugin
     return SlopeStabilityPlugin(iface)

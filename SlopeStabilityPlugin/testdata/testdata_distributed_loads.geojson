@@ -1,0 +1,78 @@
+{
+ "type": "FeatureCollection",
+ "name": "distributed_loads",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Building",
+    "q": 25.0
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      35.0,
+      311.961
+     ],
+     [
+      40.0,
+      309.938
+     ],
+     [
+      45.0,
+      309.085
+     ],
+     [
+      50.0,
+      308.002
+     ],
+     [
+      55.0,
+      307.041
+     ],
+     [
+      60.0,
+      306.539
+     ],
+     [
+      65.0,
+      304.887
+     ],
+     [
+      70.0,
+      302.559
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Road",
+    "q": 12.0
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      150.0,
+      270.37
+     ],
+     [
+      155.0,
+      268.463
+     ],
+     [
+      160.0,
+      266.056
+     ],
+     [
+      165.0,
+      264.653
+     ]
+    ]
+   }
+  }
+ ]
+}

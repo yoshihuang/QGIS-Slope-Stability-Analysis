@@ -1,0 +1,94 @@
+{
+ "type": "FeatureCollection",
+ "name": "reinforcement",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Nail 1",
+    "T": 180.0,
+    "pullout": 45.0,
+    "mode": "passive"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      115,
+      285.25
+     ],
+     [
+      87.954,
+      278.004
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Nail 2",
+    "T": 180.0,
+    "pullout": 45.0,
+    "mode": "passive"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      125,
+      280.931
+     ],
+     [
+      97.954,
+      273.684
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Nail 3",
+    "T": 180.0,
+    "pullout": 45.0,
+    "mode": "passive"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      135,
+      277.437
+     ],
+     [
+      107.954,
+      270.19
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Nail 4",
+    "T": 180.0,
+    "pullout": 45.0,
+    "mode": "passive"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      145,
+      272.162
+     ],
+     [
+      117.954,
+      264.915
+     ]
+    ]
+   }
+  }
+ ]
+}

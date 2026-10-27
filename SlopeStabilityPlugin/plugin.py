@@ -63,7 +63,7 @@ class SlopeStabilityPlugin(object):
         self.toolbar = self.iface.addToolBar(tr("Slope Stability"))
         self.toolbar.setObjectName("SlopeStabilityToolBar")
         a = QAction(icon, tr("Slope stability analysis…"), self.iface.mainWindow())
-        a.triggered.connect(self.run)
+        a.triggered.connect(self.open_dialog)
         self._add(a, toolbar=True)
         a = QAction(QIcon(os.path.join(PLUGIN_DIR, "icon_crack.svg")), tr("Pick a crack point and analyse…"), self.iface.mainWindow())
         a.setCheckable(True)
@@ -173,6 +173,10 @@ class SlopeStabilityPlugin(object):
             group.addLayer(vl)
         self.iface.mapCanvas().refreshAllLayers()
 
+    def open_dialog(self, *args):
+        """Menu / toolbar slot (QAction.triggered passes a 'checked' bool)."""
+        self.run()
+
     def run(self, crack_point=None, crack_crs=None):
         if self.task is not None:
             QMessageBox.information(self.iface.mainWindow(), tr("Slope Stability"), tr("An analysis is already running."))
@@ -185,7 +189,7 @@ class SlopeStabilityPlugin(object):
             dlg.setModal(False)
             dlg.accepted.connect(lambda d=dlg: self.start(d.get_config()))
             self.dlg = dlg
-        if crack_point is not None:
+        if crack_point is not None and hasattr(crack_point, "x"):
             dlg.set_crack_point(crack_point, crack_crs)
         dlg.show()
         dlg.raise_()

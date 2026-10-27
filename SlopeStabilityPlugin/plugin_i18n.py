@@ -77,6 +77,29 @@ def resolve_language(code):
     return "en"
 
 
+def _unlocked_copy(path):
+    """Return a copy of ``path`` in the temp folder.
+
+    On Windows QTranslator keeps the .qm file memory-mapped, which locks the
+    plugin folder: QGIS can then not delete it when the plugin is upgraded or
+    uninstalled and a broken folder without __init__.py is left behind
+    ("module has no attribute classFactory").  Loading a temporary copy keeps
+    the plugin folder free.
+    """
+    import shutil
+    import tempfile
+    try:
+        d = os.path.join(tempfile.gettempdir(), "SlopeStabilityPlugin_i18n")
+        os.makedirs(d, exist_ok=True)
+        st = os.stat(path)
+        dst = os.path.join(d, "%d_%d_%s" % (int(st.st_mtime), st.st_size, os.path.basename(path)))
+        if not os.path.exists(dst):
+            shutil.copyfile(path, dst)
+        return dst
+    except Exception:
+        return path
+
+
 def configured_language():
     return QgsSettings().value(SETTINGS_KEY, "auto", type=str) or "auto"
 
@@ -103,6 +126,7 @@ def install(code=None):
     if lang != "en":
         qm = os.path.join(PLUGIN_DIR, "i18n", "SlopeStability_%s.qm" % lang)
         if os.path.exists(qm):
+            qm = _unlocked_copy(qm)
             t = QTranslator()
             if t.load(qm) and app is not None:
                 app.installTranslator(t)

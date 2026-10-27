@@ -12,7 +12,7 @@ description[fr]=Analyse bidimensionnelle de la stabilité des pentes par les mé
 description[de]=2D-Böschungsbruchberechnung mit Grenzgleichgewichtsverfahren (Bishop, Janbu, Spencer, Morgenstern-Price u. a.) mit Suche nach kreisförmigen und nicht kreisförmigen Gleitflächen.
 description[pt]=Análise bidimensional de estabilidade de taludes por métodos de equilíbrio limite (Bishop, Janbu, Spencer, Morgenstern-Price e outros) com busca de superfícies de ruptura circulares e não circulares.
 about=A geotechnical tool for 2D slope stability analysis inside QGIS, inspired by the feature set of XSLOPE. Methods of slices: Ordinary (Fellenius), Bishop simplified, Janbu simplified (with f0 correction), Corps of Engineers #1 and #2, Lowe-Karafiath, Spencer and Morgenstern-Price. Critical surface search: circular grid search, circular entry-exit search, non-circular path search, Nelder-Mead and vertex optimisation, user-defined surfaces, and crack point analysis (pick a crack on the ground and analyse slip surfaces starting there). Inputs drawn as QGIS layers in section coordinates (x = distance, y = elevation): multi-material geology polygons (Mohr-Coulomb, undrained Su, Hoek-Brown), piezometric line or ru, distributed surcharge, tension crack with water, pseudo-static seismic loading (kh, kv), reinforcement (geogrids, nails, anchors with pull-out) and piles / retaining walls. Parametric scan of kh and water table depth, Monte Carlo and Taylor series reliability analysis, HTML report, styled GeoPackage results and a Processing algorithm for batch and model use. The interface and report follow the QGIS language (English, Traditional Chinese, Simplified Chinese, Japanese, Korean, Spanish, French, German, Portuguese). Requires numpy and shapely, which are included in the standard QGIS installers. Earlier versions were developed with the assistance of Gemini; version 3 was developed with the assistance of Claude.
-version=3.1.0
+version=3.1.1
 author=聚禾工程顧問有限公司
 email=yoshi.hml@gmail.com
 tracker=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis/issues
@@ -25,6 +25,8 @@ hasProcessingProvider=yes
 experimental=False
 deprecated=False
 changelog=
+    3.1.1
+    * Fix: on Windows the translation files stayed locked, so upgrading or uninstalling could leave a broken plugin folder ("no attribute classFactory")
     3.1.0
     * Crack point analysis: pick a crack / scarp on the ground in the map; circular and non-circular slip surfaces are generated from that point downslope and the factor of safety computed (toolbar tool, dialog and Processing)
     * Sample data now includes distributed loads, reinforcement (soil nails) and user-defined slip surfaces

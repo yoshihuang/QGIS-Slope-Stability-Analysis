@@ -12,7 +12,7 @@ description[fr]=Analyse bidimensionnelle de la stabilité des pentes par les mé
 description[de]=2D-Böschungsbruchberechnung mit Grenzgleichgewichtsverfahren (Bishop, Janbu, Spencer, Morgenstern-Price u. a.) mit Suche nach kreisförmigen und nicht kreisförmigen Gleitflächen.
 description[pt]=Análise bidimensional de estabilidade de taludes por métodos de equilíbrio limite (Bishop, Janbu, Spencer, Morgenstern-Price e outros) com busca de superfícies de ruptura circulares e não circulares.
 about=A geotechnical tool for 2D slope stability analysis inside QGIS, inspired by the feature set of XSLOPE. Methods of slices: Ordinary (Fellenius), Bishop simplified, Janbu simplified (with f0 correction), Corps of Engineers #1 and #2, Lowe-Karafiath, Spencer and Morgenstern-Price. Critical surface search: circular grid search, circular entry-exit search, non-circular path search, Nelder-Mead and vertex optimisation, user-defined surfaces, and crack point analysis (pick a crack on the ground and analyse slip surfaces starting there). Inputs drawn as QGIS layers in section coordinates (x = distance, y = elevation): multi-material geology polygons (Mohr-Coulomb, undrained Su, Hoek-Brown), piezometric line or ru, distributed surcharge, tension crack with water, pseudo-static seismic loading (kh, kv), reinforcement (geogrids, nails, anchors with pull-out) and piles / retaining walls. Parametric scan of kh and water table depth, Monte Carlo and Taylor series reliability analysis, HTML report, styled GeoPackage results and a Processing algorithm for batch and model use. The interface and report follow the QGIS language (English, Traditional Chinese, Simplified Chinese, Japanese, Korean, Spanish, French, German, Portuguese). Requires numpy and shapely, which are included in the standard QGIS installers. Earlier versions were developed with the assistance of Gemini; version 3 was developed with the assistance of Claude.
-version=3.1.2
+version=3.1.3
 author=聚禾工程顧問有限公司
 email=yoshi.hml@gmail.com
 tracker=https://github.com/yoshihuang/QGIS-Slope-Stability-Analysis/issues
@@ -25,6 +25,9 @@ hasProcessingProvider=yes
 experimental=False
 deprecated=False
 changelog=
+    3.1.3
+    * Security / quality scan fixes: no silent exception handling, numpy random generator, development tools and tests moved out of the plugin package
+    * Qt6: fully scoped enums; fixed missing import that disabled line placement of the FS labels
     3.1.2
     * Fix: sample data is loaded from a copy in the QGIS profile, and layers reading files inside the plugin folder are closed on unload, so Windows can delete the plugin folder on upgrade / uninstall
     3.1.1

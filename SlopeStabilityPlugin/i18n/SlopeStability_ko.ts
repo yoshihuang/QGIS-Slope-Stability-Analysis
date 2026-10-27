@@ -34,7 +34,7 @@
         <translation>주동(활동력 감소)</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="152"/>
+        <location filename="../plugin.py" line="187"/>
         <source>An analysis is already running.</source>
         <translation>이미 해석이 실행 중입니다.</translation>
     </message>
@@ -44,12 +44,12 @@
         <translation>해석</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="248"/>
+        <location filename="../plugin.py" line="283"/>
         <source>Analysis cancelled.</source>
         <translation>해석이 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="285"/>
         <source>Analysis error</source>
         <translation>해석 오류</translation>
     </message>
@@ -84,7 +84,7 @@
         <translation>Bishop 간편법</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="258"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
@@ -124,7 +124,7 @@
         <translation>균열점에서 시작하는 원호 활동면</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="186"/>
+        <location filename="../plugin.py" line="221"/>
         <source>Click on the ground surface where the crack or scarp is. Right click or Esc cancels.</source>
         <translation>균열 또는 붕락애가 있는 지표면을 클릭하십시오. 오른쪽 클릭 또는 Esc로 취소합니다.</translation>
     </message>
@@ -159,7 +159,7 @@
         <translation>균열 깊이</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="279"/>
+        <location filename="../plugin.py" line="314"/>
         <source>Crack point</source>
         <translation>균열점</translation>
     </message>
@@ -189,7 +189,7 @@
         <translation>HTML 보고서 생성</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="312"/>
         <source>Critical slip surface</source>
         <translation>임계 활동면</translation>
     </message>
@@ -209,7 +209,7 @@
         <translation>수렴하지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="128"/>
+        <location filename="../plugin.py" line="163"/>
         <source>Distributed loads</source>
         <translation>분포하중</translation>
     </message>
@@ -254,7 +254,7 @@
         <translation>버전 2.x의 '일반 스캔' 모드와 같습니다. 모든 조합을 탐색하여 시나리오 이름으로 저장합니다.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="237"/>
         <source>Error</source>
         <translation>오류</translation>
     </message>
@@ -319,7 +319,7 @@
         <translation>GeoPackage 파일</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="132"/>
+        <location filename="../plugin.py" line="167"/>
         <source>Geology</source>
         <translation>지질</translation>
     </message>
@@ -414,7 +414,7 @@
         <translation>입력 자료</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="255"/>
+        <location filename="../plugin.py" line="290"/>
         <source>Input errors</source>
         <translation>입력 오류</translation>
     </message>
@@ -464,7 +464,7 @@
         <translation>Lowe-Karafiath</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="207"/>
+        <location filename="../plugin.py" line="242"/>
         <source>Main analysis</source>
         <translation>주 해석</translation>
     </message>
@@ -734,7 +734,7 @@
         <translation>먼저 지도에서 균열점을 선택하십시오(해석 탭).</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="130"/>
+        <location filename="../plugin.py" line="165"/>
         <source>Piezometric line</source>
         <translation>지하수위선</translation>
     </message>
@@ -794,7 +794,7 @@
         <translation>간극수압비 ru는 0~1 사이여야 합니다.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="258"/>
         <source>Preparing the analysis…</source>
         <translation>해석 준비 중…</translation>
     </message>
@@ -824,7 +824,7 @@
         <translation>확률변수는 지질 레이어의 c_std, phi_std, gamma_std 필드(표준편차, 정규분포)에서 읽습니다.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="127"/>
+        <location filename="../plugin.py" line="162"/>
         <source>Reinforcement</source>
         <translation>보강재</translation>
     </message>
@@ -874,7 +874,7 @@
         <translation>결과는 자격을 갖춘 기술자가 검토해야 합니다.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="129"/>
+        <location filename="../plugin.py" line="164"/>
         <source>Retaining wall</source>
         <translation>옹벽</translation>
     </message>
@@ -914,7 +914,7 @@
         <translation>탐색 밀도</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="313"/>
         <source>Search grid centres</source>
         <translation>탐색 격자 중심</translation>
     </message>
@@ -944,7 +944,7 @@
         <translation>지진계수 kh / kv</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="237"/>
         <source>Select a layer with user-defined slip surfaces.</source>
         <translation>사용자 정의 활동면 레이어를 선택하십시오.</translation>
     </message>
@@ -969,7 +969,7 @@
         <translation>절편 자료(임계 활동면)</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="313"/>
         <source>Slices (critical surface)</source>
         <translation>절편(임계 활동면)</translation>
     </message>
@@ -1039,7 +1039,7 @@
         <translation>활동면 유형</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="312"/>
         <source>Slip surfaces</source>
         <translation>활동면</translation>
     </message>
@@ -1064,12 +1064,12 @@
         <translation>사면 방향</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="276"/>
+        <location filename="../plugin.py" line="311"/>
         <source>Slope stability</source>
         <translation>사면안정</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="224"/>
+        <location filename="../plugin.py" line="259"/>
         <source>Slope stability analysis</source>
         <translation>사면안정해석</translation>
     </message>
@@ -1094,7 +1094,7 @@
         <translation>사면안정해석 결과</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="122"/>
+        <location filename="../plugin.py" line="157"/>
         <source>Slope stability sample data</source>
         <translation>사면안정 예제 자료</translation>
     </message>
@@ -1263,7 +1263,7 @@ The geology layer must be drawn in section coordinates (x = distance, y = elevat
         <translation>단위: kPa, kN/m3, 도, m. 하중, 보강재, 말뚝 레이어에 없는 필드는 '하중 및 보강' 탭의 기본값을 사용합니다.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="285"/>
         <source>Unknown error</source>
         <translation>알 수 없는 오류</translation>
     </message>
@@ -1278,7 +1278,7 @@ The geology layer must be drawn in section coordinates (x = distance, y = elevat
         <translation>사용 설명서</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="125"/>
+        <location filename="../plugin.py" line="160"/>
         <source>User-defined slip surfaces</source>
         <translation>사용자 정의 활동면</translation>
     </message>

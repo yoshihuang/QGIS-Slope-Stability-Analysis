@@ -34,7 +34,7 @@
         <translation>Ativa (reduz a força motora)</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="152"/>
+        <location filename="../plugin.py" line="187"/>
         <source>An analysis is already running.</source>
         <translation>Já existe uma análise em execução.</translation>
     </message>
@@ -44,12 +44,12 @@
         <translation>Análise</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="248"/>
+        <location filename="../plugin.py" line="283"/>
         <source>Analysis cancelled.</source>
         <translation>Análise cancelada.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="285"/>
         <source>Analysis error</source>
         <translation>Erro de análise</translation>
     </message>
@@ -84,7 +84,7 @@
         <translation>Bishop simplificado</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="258"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -124,7 +124,7 @@
         <translation>Superfícies circulares a partir do ponto de fenda</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="186"/>
+        <location filename="../plugin.py" line="221"/>
         <source>Click on the ground surface where the crack or scarp is. Right click or Esc cancels.</source>
         <translation>Clique na superfície do terreno onde está a fenda ou escarpa. Clique direito ou Esc cancela.</translation>
     </message>
@@ -159,7 +159,7 @@
         <translation>Profundidade da fenda</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="279"/>
+        <location filename="../plugin.py" line="314"/>
         <source>Crack point</source>
         <translation>Ponto de fenda</translation>
     </message>
@@ -189,7 +189,7 @@
         <translation>Criar relatório HTML</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="312"/>
         <source>Critical slip surface</source>
         <translation>Superfície de ruptura crítica</translation>
     </message>
@@ -209,7 +209,7 @@
         <translation>Não convergiu.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="128"/>
+        <location filename="../plugin.py" line="163"/>
         <source>Distributed loads</source>
         <translation>Cargas distribuídas</translation>
     </message>
@@ -254,7 +254,7 @@
         <translation>Equivale ao modo "General Scan" da versão 2.x: cada combinação é pesquisada e guardada com o nome do cenário.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="237"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
@@ -319,7 +319,7 @@
         <translation>Arquivo GeoPackage</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="132"/>
+        <location filename="../plugin.py" line="167"/>
         <source>Geology</source>
         <translation>Geologia</translation>
     </message>
@@ -414,7 +414,7 @@
         <translation>Dados de entrada</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="255"/>
+        <location filename="../plugin.py" line="290"/>
         <source>Input errors</source>
         <translation>Erros nos dados</translation>
     </message>
@@ -464,7 +464,7 @@
         <translation>Lowe-Karafiath</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="207"/>
+        <location filename="../plugin.py" line="242"/>
         <source>Main analysis</source>
         <translation>Análise principal</translation>
     </message>
@@ -734,7 +734,7 @@
         <translation>Escolha primeiro o ponto de fenda no mapa (aba Análise).</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="130"/>
+        <location filename="../plugin.py" line="165"/>
         <source>Piezometric line</source>
         <translation>Linha piezométrica</translation>
     </message>
@@ -794,7 +794,7 @@
         <translation>A razão de poropressão ru deve estar entre 0 e 1.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="258"/>
         <source>Preparing the analysis…</source>
         <translation>Preparando a análise…</translation>
     </message>
@@ -824,7 +824,7 @@
         <translation>As variáveis aleatórias são lidas dos campos c_std, phi_std e gamma_std da camada de geologia (desvios padrão, distribuição normal).</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="127"/>
+        <location filename="../plugin.py" line="162"/>
         <source>Reinforcement</source>
         <translation>Reforço</translation>
     </message>
@@ -874,7 +874,7 @@
         <translation>Os resultados devem ser verificados por um engenheiro qualificado.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="129"/>
+        <location filename="../plugin.py" line="164"/>
         <source>Retaining wall</source>
         <translation>Muro de contenção</translation>
     </message>
@@ -914,7 +914,7 @@
         <translation>Densidade de busca</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="313"/>
         <source>Search grid centres</source>
         <translation>Centros da malha de busca</translation>
     </message>
@@ -944,7 +944,7 @@
         <translation>Coeficiente sísmico kh / kv</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="237"/>
         <source>Select a layer with user-defined slip surfaces.</source>
         <translation>Selecione uma camada com superfícies de ruptura definidas pelo usuário.</translation>
     </message>
@@ -969,7 +969,7 @@
         <translation>Dados das fatias (superfície crítica)</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="313"/>
         <source>Slices (critical surface)</source>
         <translation>Fatias (superfície crítica)</translation>
     </message>
@@ -1039,7 +1039,7 @@
         <translation>Tipo de superfície de ruptura</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="312"/>
         <source>Slip surfaces</source>
         <translation>Superfícies de ruptura</translation>
     </message>
@@ -1064,12 +1064,12 @@
         <translation>Direção do talude</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="276"/>
+        <location filename="../plugin.py" line="311"/>
         <source>Slope stability</source>
         <translation>Estabilidade de taludes</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="224"/>
+        <location filename="../plugin.py" line="259"/>
         <source>Slope stability analysis</source>
         <translation>Análise de estabilidade de taludes</translation>
     </message>
@@ -1094,7 +1094,7 @@
         <translation>Resultados de estabilidade de taludes</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="122"/>
+        <location filename="../plugin.py" line="157"/>
         <source>Slope stability sample data</source>
         <translation>Dados de exemplo de estabilidade de taludes</translation>
     </message>
@@ -1263,7 +1263,7 @@ A camada de geologia deve ser desenhada em coordenadas da seção (x = distânci
         <translation>Unidades: kPa, kN/m3, graus, metros. Campos ausentes nas camadas de cargas, reforços ou estacas usam os valores padrão da aba Cargas e reforços.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="285"/>
         <source>Unknown error</source>
         <translation>Erro desconhecido</translation>
     </message>
@@ -1278,7 +1278,7 @@ A camada de geologia deve ser desenhada em coordenadas da seção (x = distânci
         <translation>Guia do usuário</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="125"/>
+        <location filename="../plugin.py" line="160"/>
         <source>User-defined slip surfaces</source>
         <translation>Superfícies de ruptura definidas pelo usuário</translation>
     </message>

@@ -12,11 +12,10 @@ try:  # Qt6: QAction lives in QtGui
     from qgis.PyQt.QtGui import QAction
 except ImportError:  # Qt5
     from qgis.PyQt.QtWidgets import QAction
-from qgis.core import (QgsApplication, QgsProject, QgsVectorLayer, QgsMessageLog, Qgis,
-                       QgsLayerTreeGroup)
+from qgis.core import (QgsApplication, QgsProject, QgsVectorLayer, QgsMessageLog, Qgis)
 
 from . import plugin_i18n
-from .compat import exec_dialog, enum
+from .compat import enum
 from .core.i18n import tr
 from .core.search import SearchSettings
 from .core.analysis import Scenario
@@ -32,8 +31,8 @@ def plugin_version():
             for line in f:
                 if line.startswith("version="):
                     return line.split("=", 1)[1].strip()
-    except Exception:
-        pass
+    except OSError:
+        return ""
     return ""
 
 
@@ -87,11 +86,9 @@ class SlopeStabilityPlugin(object):
     def unload(self):
         self._release_plugin_files()
         if self.crack_tool is not None:
-            try:
-                self.iface.mapCanvas().unsetMapTool(self.crack_tool)
-                self.crack_tool.clear_marker()
-            except Exception:
-                pass
+            self.iface.mapCanvas().unsetMapTool(self.crack_tool)
+            self.crack_tool.clear_marker()
+            self.crack_tool = None
         if self.dlg is not None:
             self.dlg.close()
             self.dlg = None
@@ -142,12 +139,9 @@ class SlopeStabilityPlugin(object):
         prj = QgsProject.instance()
         ids = []
         for lid, lyr in prj.mapLayers().items():
-            try:
-                path = lyr.source().split("|")[0]
-                if path and os.path.normcase(os.path.abspath(path)).startswith(root):
-                    ids.append(lid)
-            except Exception:
-                pass
+            path = lyr.source().split("|")[0]
+            if path and os.path.normcase(os.path.abspath(path)).startswith(root):
+                ids.append(lid)
         if ids:
             prj.removeMapLayers(ids)
 
@@ -174,10 +168,7 @@ class SlopeStabilityPlugin(object):
             if not vl.isValid():
                 continue
             if style:
-                try:
-                    vl.setRenderer(QgsSingleSymbolRenderer(QgsLineSymbol.createSimple(style)))
-                except Exception:
-                    pass
+                vl.setRenderer(QgsSingleSymbolRenderer(QgsLineSymbol.createSimple(style)))
             QgsProject.instance().addMapLayer(vl, False)
             group.addLayer(vl)
         self.iface.mapCanvas().refreshAllLayers()
@@ -230,7 +221,7 @@ class SlopeStabilityPlugin(object):
             QMessageBox.warning(self.iface.mainWindow(), tr("Error"), u"%s" % e)
             return
         for level, m in msgs:
-            QgsMessageLog.logMessage(m, LOG_TAG, Qgis.MessageLevel.Warning if hasattr(Qgis, "MessageLevel") else Qgis.Warning)
+            QgsMessageLog.logMessage(m, LOG_TAG, Qgis.MessageLevel.Warning)
         search = dict(cfg["search"])
         search["user_surfaces"] = user
         if search["surface_type"] == "user" and not user:

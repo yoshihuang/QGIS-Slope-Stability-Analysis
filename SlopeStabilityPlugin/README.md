@@ -30,16 +30,16 @@ ui/                   dialogs
 processing_provider/  Processing algorithm
 plugin_i18n.py        language selection (QTranslator)
 i18n/                 .ts sources and compiled .qm catalogues
-tools/                i18n_build.py + translations/*.json
-tests/                benchmark tests (python tests/test_benchmarks.py)
 ```
 
 ## Translations
 
+The `tools/` and `tests/` folders live at the repository root (they are not part of the plugin package).
+
 Every user-visible string is written as `tr("English text")`. To add or update a language:
 
 1. edit `tools/translations/<lang>.json` (`{"English source": "translation"}`),
-2. run `python tools/i18n_build.py` (needs `lrelease` from Qt Linguist or `pyside6-lrelease`),
+2. run `python tools/i18n_build.py` from the repository root (needs `lrelease` from Qt Linguist or `pyside6-lrelease`),
 3. `python tools/i18n_build.py --check` lists missing strings.
 
 To add a new language, add its code to `LANGS` in `tools/i18n_build.py` and to `LANGUAGES` in `plugin_i18n.py`.

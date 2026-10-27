@@ -34,7 +34,7 @@
         <translation>Aktiv (verringert die treibende Kraft)</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="152"/>
+        <location filename="../plugin.py" line="187"/>
         <source>An analysis is already running.</source>
         <translation>Es läuft bereits eine Berechnung.</translation>
     </message>
@@ -44,12 +44,12 @@
         <translation>Berechnung</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="248"/>
+        <location filename="../plugin.py" line="283"/>
         <source>Analysis cancelled.</source>
         <translation>Berechnung abgebrochen.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="285"/>
         <source>Analysis error</source>
         <translation>Berechnungsfehler</translation>
     </message>
@@ -84,7 +84,7 @@
         <translation>Bishop (vereinfacht)</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="258"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -124,7 +124,7 @@
         <translation>Kreisförmige Gleitflächen ab dem Risspunkt</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="186"/>
+        <location filename="../plugin.py" line="221"/>
         <source>Click on the ground surface where the crack or scarp is. Right click or Esc cancels.</source>
         <translation>Auf die Geländeoberfläche an der Stelle des Risses oder der Abrisskante klicken. Rechtsklick oder Esc bricht ab.</translation>
     </message>
@@ -159,7 +159,7 @@
         <translation>Risstiefe</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="279"/>
+        <location filename="../plugin.py" line="314"/>
         <source>Crack point</source>
         <translation>Risspunkt</translation>
     </message>
@@ -189,7 +189,7 @@
         <translation>HTML-Bericht erstellen</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="312"/>
         <source>Critical slip surface</source>
         <translation>Maßgebende Gleitfläche</translation>
     </message>
@@ -209,7 +209,7 @@
         <translation>Keine Konvergenz.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="128"/>
+        <location filename="../plugin.py" line="163"/>
         <source>Distributed loads</source>
         <translation>Streckenlasten</translation>
     </message>
@@ -254,7 +254,7 @@
         <translation>Entspricht dem Modus „General Scan“ der Version 2.x: Jede Kombination wird gesucht und unter ihrem Szenarionamen gespeichert.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="237"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
@@ -319,7 +319,7 @@
         <translation>GeoPackage-Datei</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="132"/>
+        <location filename="../plugin.py" line="167"/>
         <source>Geology</source>
         <translation>Geologie</translation>
     </message>
@@ -414,7 +414,7 @@
         <translation>Eingabedaten</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="255"/>
+        <location filename="../plugin.py" line="290"/>
         <source>Input errors</source>
         <translation>Eingabefehler</translation>
     </message>
@@ -464,7 +464,7 @@
         <translation>Lowe-Karafiath</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="207"/>
+        <location filename="../plugin.py" line="242"/>
         <source>Main analysis</source>
         <translation>Hauptberechnung</translation>
     </message>
@@ -734,7 +734,7 @@
         <translation>Zuerst den Risspunkt auf der Karte wählen (Reiter Berechnung).</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="130"/>
+        <location filename="../plugin.py" line="165"/>
         <source>Piezometric line</source>
         <translation>Piezometerlinie</translation>
     </message>
@@ -794,7 +794,7 @@
         <translation>Das Porenwasserdruckverhältnis ru muss zwischen 0 und 1 liegen.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="258"/>
         <source>Preparing the analysis…</source>
         <translation>Berechnung wird vorbereitet…</translation>
     </message>
@@ -824,7 +824,7 @@
         <translation>Die Zufallsvariablen werden aus den Feldern c_std, phi_std und gamma_std des Geologie-Layers gelesen (Standardabweichungen, Normalverteilung).</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="127"/>
+        <location filename="../plugin.py" line="162"/>
         <source>Reinforcement</source>
         <translation>Bewehrung</translation>
     </message>
@@ -874,7 +874,7 @@
         <translation>Die Ergebnisse müssen von einer fachkundigen Ingenieurin / einem fachkundigen Ingenieur geprüft werden.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="129"/>
+        <location filename="../plugin.py" line="164"/>
         <source>Retaining wall</source>
         <translation>Stützwand</translation>
     </message>
@@ -914,7 +914,7 @@
         <translation>Suchdichte</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="313"/>
         <source>Search grid centres</source>
         <translation>Mittelpunkte des Suchrasters</translation>
     </message>
@@ -944,7 +944,7 @@
         <translation>Erdbebenbeiwert kh / kv</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="237"/>
         <source>Select a layer with user-defined slip surfaces.</source>
         <translation>Einen Layer mit benutzerdefinierten Gleitflächen wählen.</translation>
     </message>
@@ -969,7 +969,7 @@
         <translation>Lamellendaten (maßgebende Gleitfläche)</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="313"/>
         <source>Slices (critical surface)</source>
         <translation>Lamellen (maßgebende Gleitfläche)</translation>
     </message>
@@ -1039,7 +1039,7 @@
         <translation>Gleitflächentyp</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="312"/>
         <source>Slip surfaces</source>
         <translation>Gleitflächen</translation>
     </message>
@@ -1064,12 +1064,12 @@
         <translation>Böschungsrichtung</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="276"/>
+        <location filename="../plugin.py" line="311"/>
         <source>Slope stability</source>
         <translation>Böschungsstabilität</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="224"/>
+        <location filename="../plugin.py" line="259"/>
         <source>Slope stability analysis</source>
         <translation>Böschungsbruchberechnung</translation>
     </message>
@@ -1094,7 +1094,7 @@
         <translation>Ergebnisse der Böschungsbruchberechnung</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="122"/>
+        <location filename="../plugin.py" line="157"/>
         <source>Slope stability sample data</source>
         <translation>Beispieldaten Böschungsstabilität</translation>
     </message>
@@ -1263,7 +1263,7 @@ Der Geologie-Layer muss in Schnittkoordinaten (x = Abstand, y = Höhe) gezeichne
         <translation>Einheiten: kPa, kN/m3, Grad, Meter. Fehlende Felder in Last-, Bewehrungs- oder Pfahl-Layern verwenden die Standardwerte im Reiter Lasten &amp; Sicherungen.</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="285"/>
         <source>Unknown error</source>
         <translation>Unbekannter Fehler</translation>
     </message>
@@ -1278,7 +1278,7 @@ Der Geologie-Layer muss in Schnittkoordinaten (x = Abstand, y = Höhe) gezeichne
         <translation>Benutzerhandbuch</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="125"/>
+        <location filename="../plugin.py" line="160"/>
         <source>User-defined slip surfaces</source>
         <translation>Benutzerdefinierte Gleitflächen</translation>
     </message>

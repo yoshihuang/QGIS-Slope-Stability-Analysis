@@ -10,14 +10,12 @@ geometry is mirrored (x -> -x) on :meth:`SlopeModel.prepare` and every result
 is mirrored back by :meth:`SlopeModel.to_world`.
 """
 
-import math
 import numpy as np
-from shapely.geometry import (LineString, Polygon, MultiPolygon, Point,
+from shapely.geometry import (LineString, Polygon, MultiPolygon,
                               MultiLineString, GeometryCollection)
 from shapely.ops import unary_union
 from shapely import affinity
 
-from .materials import Material
 from .i18n import tr
 
 GAMMA_W = 9.81
@@ -217,11 +215,15 @@ class SlopeModel(object):
             rings = [p.exterior] + list(p.interiors)
             for ring in rings:
                 c = np.asarray(ring.coords)
-                x1.append(c[:-1, 0]); y1.append(c[:-1, 1])
-                x2.append(c[1:, 0]); y2.append(c[1:, 1])
+                x1.append(c[:-1, 0])
+                y1.append(c[:-1, 1])
+                x2.append(c[1:, 0])
+                y2.append(c[1:, 1])
                 rid.append(np.full(len(c) - 1, i))
-        self._ex1 = np.concatenate(x1); self._ey1 = np.concatenate(y1)
-        self._ex2 = np.concatenate(x2); self._ey2 = np.concatenate(y2)
+        self._ex1 = np.concatenate(x1)
+        self._ey1 = np.concatenate(y1)
+        self._ex2 = np.concatenate(x2)
+        self._ey2 = np.concatenate(y2)
         self._erid = np.concatenate(rid)
         self._elo = np.minimum(self._ex1, self._ex2)
         self._ehi = np.maximum(self._ex1, self._ex2)
@@ -257,7 +259,7 @@ class SlopeModel(object):
         xs = np.array(sorted(xs))
         # sample slightly inside each vertex pair to obtain the envelope
         eps = max(self.xmax - self.xmin, 1.0) * 1e-9
-        pts_x, pts_y = [], []
+        pts_x = []
         for i, x in enumerate(xs):
             for xx in (x - eps, x + eps) if 0 < i < len(xs) - 1 else ((x + eps,) if i == 0 else (x - eps,)):
                 pts_x.append(xx)

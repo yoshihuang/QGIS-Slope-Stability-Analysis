@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Build the Qt translation catalogues of the plugin.
 
-Usage (from the plugin folder)::
+Usage (from the repository root)::
 
     python tools/i18n_build.py            # update i18n/*.ts and compile *.qm
     python tools/i18n_build.py --check    # list untranslated strings
@@ -23,7 +23,7 @@ import sys
 from xml.sax.saxutils import escape
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
+ROOT = os.path.join(os.path.dirname(HERE), "SlopeStabilityPlugin")
 CONTEXT = "SlopeStability"
 LANGS = ["zh_TW", "zh_CN", "ja", "ko", "es", "fr", "de", "pt"]
 TS_LANG = {"zh_TW": "zh_TW", "zh_CN": "zh_CN", "ja": "ja_JP", "ko": "ko_KR", "es": "es_ES",
@@ -33,7 +33,7 @@ TS_LANG = {"zh_TW": "zh_TW", "zh_CN": "zh_CN", "ja": "ja_JP", "ko": "ko_KR", "es
 def extract():
     found = {}
     for dirpath, dirnames, filenames in os.walk(ROOT):
-        dirnames[:] = [d for d in dirnames if d not in ("tools", "__pycache__", "i18n", "testdata")]
+        dirnames[:] = [d for d in dirnames if d not in ("__pycache__", "i18n", "testdata")]
         for fn in sorted(filenames):
             if not fn.endswith(".py"):
                 continue

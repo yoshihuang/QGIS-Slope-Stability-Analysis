@@ -91,9 +91,9 @@ class LEMResult(object):
 class _Ext(object):
     """External forces resolved per slice + their moments about O."""
 
-    def __init__(self, S, model, O):
+    def __init__(self, S, model, centre):
         n = S.n
-        xo, yo = O
+        xo, yo = centre
         kh, kv = model.kh, model.kv
         W = S.W
         # active forces per slice
@@ -144,7 +144,7 @@ _MALPHA_MIN = 0.2
 
 
 def _strength(S, N):
-    return S.c * S.l + (N - S.u * S.l) * S.tphi
+    return S.c * S.base_len + (N - S.u * S.base_len) * S.tphi
 
 
 def _N_vertical(S, ext, F):
@@ -152,7 +152,7 @@ def _N_vertical(S, ext, F):
     ma = ext.ca + ext.sa * S.tphi / F
     warn = bool(np.any(ma < _MALPHA_MIN))
     ma = np.maximum(ma, _MALPHA_MIN)
-    N = (-ext.Fy_a - ext.Fy_p / F - (S.c * S.l - S.u * S.l * S.tphi) * ext.sa / F) / ma
+    N = (-ext.Fy_a - ext.Fy_p / F - (S.c * S.base_len - S.u * S.base_len * S.tphi) * ext.sa / F) / ma
     return N, warn
 
 
@@ -177,10 +177,10 @@ def solve_ordinary(S, ext):
     Fx = ext.Fx_a + ext.Fx_p
     Fy = ext.Fy_a + ext.Fy_p
     N = -(Fx * ext.sa + Fy * ext.ca)
-    Neff = np.maximum(N - S.u * S.l, 0.0)
-    N = Neff + S.u * S.l
+    Neff = np.maximum(N - S.u * S.base_len, 0.0)
+    N = Neff + S.u * S.base_len
     den = ext.Ma + ext.Mp + float(np.sum(N * ext.mn))
-    num = -float(np.sum((S.c * S.l + Neff * S.tphi) * ext.ms))
+    num = -float(np.sum((S.c * S.base_len + Neff * S.tphi) * ext.ms))
     if den <= 1e-9:
         r.message = tr("No driving moment.")
         return r
@@ -258,7 +258,7 @@ def solve_janbu(S, ext, F0=1.5, correct=True):
 def _prep_lists(S, ext):
     return dict(
         sa=ext.sa.tolist(), ca=ext.ca.tolist(),
-        cl=(S.c * S.l).tolist(), ult=(S.u * S.l * S.tphi).tolist(),
+        cl=(S.c * S.base_len).tolist(), ult=(S.u * S.base_len * S.tphi).tolist(),
         tp=S.tphi.tolist(),
         fxa=ext.Fx_a.tolist(), fya=ext.Fy_a.tolist(),
         fxp=ext.Fx_p.tolist(), fyp=ext.Fy_p.tolist(),
@@ -301,7 +301,7 @@ def _fs_from_march(S, ext, N, which):
 def _residual_fun(S, ext, L, k, which):
     Wsum = max(float(np.sum(S.W + S.Q + S.pond)), 1e-9)
     Lsc = max(S.x_out - S.x_in, 1e-9)
-    cl, ult = S.c * S.l, S.u * S.l * S.tphi
+    cl, ult = S.c * S.base_len, S.u * S.base_len * S.tphi
 
     def r(F):
         N, E, X = _march(L, F, k)
@@ -423,7 +423,7 @@ def _newton_gle(S, ext, L, f, F0, lam0=0.0):
     Wsum = max(float(np.sum(S.W + S.Q + S.pond)), 1e-9)
     Lsc = max(S.x_out - S.x_in, 1e-9)
     mn, ms = ext.mn, ext.ms
-    cl, ult = S.c * S.l, S.u * S.l * S.tphi
+    cl, ult = S.c * S.base_len, S.u * S.base_len * S.tphi
     fl = f.tolist()
 
     def res(F, lam):
@@ -483,7 +483,7 @@ def _admissible(S, res):
     if res.N is None:
         return True
     N = np.asarray(res.N)
-    Neff = N - S.u * S.l
+    Neff = N - S.u * S.base_len
     W = S.W + S.Q + S.pond
     scale = float(np.sum(W)) + 1e-9
     # large negative effective normal forces or interslice tension indicate a
@@ -628,8 +628,8 @@ def solve(S, model, method, F0=None):
         return LEMResult(method, message=S.reason)
     if method in CIRCULAR_ONLY and S.surface.kind != "circular":
         return LEMResult(method, message=tr("Method requires a circular slip surface."))
-    O = moment_point(S, model)
-    ext = _Ext(S, model, O)
+    centre = moment_point(S, model)
+    ext = _Ext(S, model, centre)
     if F0 is None:
         F0 = 1.5
         if method not in ("ordinary", "bishop"):
@@ -644,7 +644,7 @@ def solve(S, model, method, F0=None):
         res = _dispatch(S, model, method, ext, F0)
         if not res.ok or res.N is None:
             return res
-        sig = np.maximum((res.N - S.u * S.l) / S.l, 0.0)
+        sig = np.maximum((res.N - S.u * S.base_len) / S.base_len, 0.0)
         changed = 0.0
         for i in np.nonzero(S.nonlinear)[0]:
             c, t = model.materials[S.mat[i]].linear_parameters(sig[i])
@@ -663,8 +663,8 @@ def slice_table(S, model, res):
         return rows
     F = res.fs
     N = np.asarray(res.N)
-    Neff = N - S.u * S.l
-    Sm = (S.c * S.l + Neff * S.tphi) / F
+    Neff = N - S.u * S.base_len
+    Sm = (S.c * S.base_len + Neff * S.tphi) / F
     for i in range(S.n):
         rows.append({
             "slice": i + 1,
@@ -672,7 +672,7 @@ def slice_table(S, model, res):
             "width": float(S.b[i]),
             "height": float(S.ground_m[i] - S.yb[i]),
             "alpha": math.degrees(float(S.alpha[i])),
-            "base_len": float(S.l[i]),
+            "base_len": float(S.base_len[i]),
             "weight": float(S.W[i]),
             "surcharge": float(S.Q[i]),
             "material": model.materials[int(S.mat[i])].name,
@@ -680,7 +680,7 @@ def slice_table(S, model, res):
             "phi": math.degrees(math.atan(float(S.tphi[i]))),
             "u": float(S.u[i]),
             "N_eff": float(Neff[i]),
-            "sigma_eff": float(Neff[i] / S.l[i]),
+            "sigma_eff": float(Neff[i] / S.base_len[i]),
             "shear_mob": float(Sm[i]),
             "E": float(res.E[i]) if res.E is not None else None,
             "X": float(res.X[i]) if res.X is not None else None,

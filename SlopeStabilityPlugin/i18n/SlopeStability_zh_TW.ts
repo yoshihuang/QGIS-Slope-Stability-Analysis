@@ -4,7 +4,7 @@
 <context>
     <name>SlopeStability</name>
     <message>
-        <location filename="../plugin.py" line="62"/>
+        <location filename="../plugin.py" line="61"/>
         <source>&amp;Slope Stability</source>
         <translation>邊坡穩定分析(&amp;S)</translation>
     </message>
@@ -14,67 +14,67 @@
         <translation>（mα 已設下限）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="49"/>
+        <location filename="../ui/dialog.py" line="47"/>
         <source>-- not used --</source>
         <translation>-- 不使用 --</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="219"/>
+        <location filename="../ui/dialog.py" line="217"/>
         <source>100 % = standard density. Increase for a finer search, decrease for a quick test.</source>
         <translation>100 % 為標準密度。提高可得較細的搜尋，降低可快速測試。</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="244"/>
+        <location filename="../qgis_io.py" line="238"/>
         <source>A global support force is applied at the toe of every slip surface (v2.x compatible mode).</source>
         <translation>每個滑動面的坡趾處皆施加整體支撐力（v2.x 相容模式）。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="183"/>
+        <location filename="../ui/dialog.py" line="181"/>
         <source>Active (reduces driving force)</source>
         <translation>主動（減少下滑力）</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="152"/>
+        <location filename="../plugin.py" line="178"/>
         <source>An analysis is already running.</source>
         <translation>已有分析正在執行中。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="92"/>
+        <location filename="../ui/dialog.py" line="90"/>
         <source>Analysis</source>
         <translation>分析設定</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="248"/>
+        <location filename="../plugin.py" line="274"/>
         <source>Analysis cancelled.</source>
         <translation>分析已取消。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="276"/>
         <source>Analysis error</source>
         <translation>分析錯誤</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="145"/>
+        <location filename="../ui/dialog.py" line="143"/>
         <source>Attribute fields recognised on the input layers (names are not case-sensitive):</source>
         <translation>輸入圖層可辨識的屬性欄位（不分大小寫）：</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="226"/>
+        <location filename="../ui/dialog.py" line="224"/>
         <source>Automatic</source>
         <translation>自動</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="390"/>
+        <location filename="../ui/dialog.py" line="388"/>
         <source>Automatic (QGIS language)</source>
         <translation>自動（依 QGIS 語言）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="290"/>
+        <location filename="../ui/dialog.py" line="288"/>
         <source>Automatic centre grid</source>
         <translation>自動圓心格網</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="274"/>
+        <location filename="../ui/dialog.py" line="272"/>
         <source>Automatic entry / exit ranges</source>
         <translation>自動設定進入 / 滑出範圍</translation>
     </message>
@@ -84,7 +84,7 @@
         <translation>Bishop 簡化法</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="249"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -94,17 +94,17 @@
         <translation>圓心</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="298"/>
+        <location filename="../ui/dialog.py" line="296"/>
         <source>Centre x from</source>
         <translation>圓心 x 從</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="302"/>
+        <location filename="../ui/dialog.py" line="300"/>
         <source>Centre y from</source>
         <translation>圓心 y 從</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="98"/>
+        <location filename="../ui/dialog.py" line="96"/>
         <source>Check inputs</source>
         <translation>檢查輸入</translation>
     </message>
@@ -124,12 +124,12 @@
         <translation>由裂隙點產生圓弧滑動面</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="186"/>
+        <location filename="../plugin.py" line="212"/>
         <source>Click on the ground surface where the crack or scarp is. Right click or Esc cancels.</source>
         <translation>請在地表上點選裂隙或崩崖位置。按右鍵或 Esc 取消。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="102"/>
+        <location filename="../ui/dialog.py" line="100"/>
         <source>Close</source>
         <translation>關閉</translation>
     </message>
@@ -149,7 +149,7 @@
         <translation>美國陸軍工兵團法 #2</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="445"/>
+        <location filename="../qgis_io.py" line="439"/>
         <source>Could not write {0}: {1}</source>
         <translation>無法寫入 {0}：{1}</translation>
     </message>
@@ -159,12 +159,12 @@
         <translation>裂縫深度</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="279"/>
+        <location filename="../plugin.py" line="305"/>
         <source>Crack point</source>
         <translation>裂隙點</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="243"/>
+        <location filename="../ui/dialog.py" line="241"/>
         <source>Crack point (slip surfaces start here and extend downslope)</source>
         <translation>裂隙點（滑動面由此向下坡延伸）</translation>
     </message>
@@ -179,22 +179,22 @@
         <translation>裂隙點 x（裂隙點搜尋用）</translation>
     </message>
     <message>
-        <location filename="../processing_provider/algorithm.py" line="159"/>
+        <location filename="../processing_provider/algorithm.py" line="161"/>
         <source>Crack point x is required for the crack point search.</source>
         <translation>裂隙點搜尋需要裂隙點 x。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="379"/>
+        <location filename="../ui/dialog.py" line="377"/>
         <source>Create HTML report</source>
         <translation>產生 HTML 報告</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="303"/>
         <source>Critical slip surface</source>
         <translation>臨界滑動面</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="175"/>
+        <location filename="../ui/dialog.py" line="173"/>
         <source>Default values (used when the layer has no attribute)</source>
         <translation>預設值（圖層無對應屬性時使用）</translation>
     </message>
@@ -209,7 +209,7 @@
         <translation>未收斂。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="128"/>
+        <location filename="../plugin.py" line="157"/>
         <source>Distributed loads</source>
         <translation>分布載重</translation>
     </message>
@@ -224,7 +224,7 @@
         <translation>乾燥（無水）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="370"/>
+        <location filename="../ui/dialog.py" line="368"/>
         <source>Empty = temporary layers</source>
         <translation>留空 = 暫存圖層</translation>
     </message>
@@ -239,7 +239,7 @@
         <translation>進入點 x</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="282"/>
+        <location filename="../ui/dialog.py" line="280"/>
         <source>Entry x from</source>
         <translation>進入點 x 從</translation>
     </message>
@@ -249,17 +249,17 @@
         <translation>進入 - 滑出搜尋</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="334"/>
+        <location filename="../ui/dialog.py" line="332"/>
         <source>Equivalent to the 'General Scan' mode of version 2.x: every combination is searched and stored with its scenario name.</source>
         <translation>相當於 2.x 版的「通用矩陣掃描」模式：每種組合都會搜尋並以情境名稱儲存。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="228"/>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
     <message>
-        <location filename="../core/analysis.py" line="126"/>
+        <location filename="../core/analysis.py" line="125"/>
         <source>Evaluating all methods on the critical surface</source>
         <translation>以所有方法計算臨界滑動面</translation>
     </message>
@@ -274,7 +274,7 @@
         <translation>滑出點 x</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="286"/>
+        <location filename="../ui/dialog.py" line="284"/>
         <source>Exit x from</source>
         <translation>滑出點 x 從</translation>
     </message>
@@ -284,22 +284,22 @@
         <translation>安全係數</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="163"/>
+        <location filename="../qgis_io.py" line="159"/>
         <source>Feature {0}: unit weight is empty or not a number.</source>
         <translation>圖徵 {0}：單位重為空值或非數字。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="306"/>
+        <location filename="../ui/dialog.py" line="304"/>
         <source>Fill from geology extent</source>
         <translation>依地質圖層範圍填入</translation>
     </message>
     <message>
-        <location filename="../core/analysis.py" line="161"/>
+        <location filename="../core/analysis.py" line="160"/>
         <source>Finished</source>
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="248"/>
+        <location filename="../ui/dialog.py" line="246"/>
         <source>For information only: the point is projected vertically onto the ground surface.</source>
         <translation>僅供參考：此點會垂直投影至地表。</translation>
     </message>
@@ -314,12 +314,12 @@
         <translation>由地圖點選的裂隙點</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="375"/>
+        <location filename="../ui/dialog.py" line="373"/>
         <source>GeoPackage file</source>
         <translation>GeoPackage 檔案</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="132"/>
+        <location filename="../plugin.py" line="161"/>
         <source>Geology</source>
         <translation>地質</translation>
     </message>
@@ -329,7 +329,7 @@
         <translation>地質 / 材料（面）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="124"/>
+        <location filename="../ui/dialog.py" line="122"/>
         <source>Geology / materials (polygon) *</source>
         <translation>地質 / 材料（面）*</translation>
     </message>
@@ -339,12 +339,12 @@
         <translation>地質圖層</translation>
     </message>
     <message>
-        <location filename="../core/model.py" line="154"/>
+        <location filename="../core/model.py" line="152"/>
         <source>Geology polygons do not form one continuous body (gaps between polygons).</source>
         <translation>地質多邊形未形成連續整體（多邊形之間有空隙）。</translation>
     </message>
     <message>
-        <location filename="../core/model.py" line="152"/>
+        <location filename="../core/model.py" line="150"/>
         <source>Geology polygons overlap; the first polygon found is used in overlapping areas.</source>
         <translation>地質多邊形有重疊；重疊區域採用最先找到的多邊形。</translation>
     </message>
@@ -379,7 +379,7 @@
         <translation>Hoek-Brown 需 sigci &gt; 0、mi &gt; 0 且 0 &lt; GSI &lt;= 100。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="158"/>
+        <location filename="../ui/dialog.py" line="156"/>
         <source>Horizontal pseudo-static seismic coefficient, acting in the direction of sliding.</source>
         <translation>水平擬靜態地震係數，作用方向與滑動方向相同。</translation>
     </message>
@@ -389,22 +389,22 @@
         <translation>水平地震係數 kh</translation>
     </message>
     <message>
-        <location filename="../core/model.py" line="159"/>
+        <location filename="../core/model.py" line="157"/>
         <source>Horizontal seismic coefficient kh must be between 0 and 1.</source>
         <translation>水平地震係數 kh 必須介於 0 至 1。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="223"/>
+        <location filename="../ui/dialog.py" line="221"/>
         <source>Ignore surfaces ending at the left/right model boundary</source>
         <translation>忽略端點位於模型左右邊界的滑動面</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="90"/>
+        <location filename="../ui/dialog.py" line="88"/>
         <source>Input</source>
         <translation>輸入</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="516"/>
+        <location filename="../ui/dialog.py" line="517"/>
         <source>Input checks</source>
         <translation>輸入檢查</translation>
     </message>
@@ -414,17 +414,17 @@
         <translation>輸入資料</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="255"/>
+        <location filename="../plugin.py" line="281"/>
         <source>Input errors</source>
         <translation>輸入錯誤</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="395"/>
+        <location filename="../ui/dialog.py" line="393"/>
         <source>Interface and report language</source>
         <translation>介面與報告語言</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="491"/>
+        <location filename="../ui/dialog.py" line="493"/>
         <source>Invalid list of values in the Scenarios tab.</source>
         <translation>「情境」分頁中的數值清單無效。</translation>
     </message>
@@ -439,22 +439,22 @@
         <translation>Janbu 簡化法結果已含 Janbu 修正係數 f0。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="386"/>
+        <location filename="../ui/dialog.py" line="384"/>
         <source>Language</source>
         <translation>語言</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="146"/>
+        <location filename="../ui/dialog.py" line="144"/>
         <source>Layer</source>
         <translation>圖層</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="74"/>
+        <location filename="../plugin.py" line="73"/>
         <source>Load sample data</source>
         <translation>載入範例資料</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="91"/>
+        <location filename="../ui/dialog.py" line="89"/>
         <source>Loads &amp;&amp; supports</source>
         <translation>載重與支撐</translation>
     </message>
@@ -464,17 +464,17 @@
         <translation>Lowe-Karafiath</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="207"/>
+        <location filename="../plugin.py" line="233"/>
         <source>Main analysis</source>
         <translation>主要分析</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="319"/>
+        <location filename="../ui/dialog.py" line="317"/>
         <source>Main analysis (kh and piezometric line from the previous tabs)</source>
         <translation>主要分析（使用前面分頁的 kh 與地下水位線）</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="165"/>
+        <location filename="../qgis_io.py" line="161"/>
         <source>Material</source>
         <translation>材料</translation>
     </message>
@@ -484,7 +484,7 @@
         <translation>材料無剪力強度（c = 0 且 phi = 0）。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="522"/>
+        <location filename="../ui/dialog.py" line="523"/>
         <source>Materials</source>
         <translation>材料</translation>
     </message>
@@ -509,12 +509,12 @@
         <translation>此方法需要圓弧滑動面。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="217"/>
+        <location filename="../ui/dialog.py" line="215"/>
         <source>Method used to evaluate every trial surface during the search.</source>
         <translation>搜尋時用來計算每個試算滑動面的方法。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="262"/>
+        <location filename="../ui/dialog.py" line="260"/>
         <source>Methods computed on the critical surface</source>
         <translation>臨界滑動面採用的計算方法</translation>
     </message>
@@ -529,12 +529,12 @@
         <translation>最小安全係數</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="237"/>
+        <location filename="../ui/dialog.py" line="235"/>
         <source>Minimum slide depth</source>
         <translation>最小滑動深度</translation>
     </message>
     <message>
-        <location filename="../__init__.py" line="14"/>
+        <location filename="../__init__.py" line="16"/>
         <source>Missing dependencies</source>
         <translation>缺少相依套件</translation>
     </message>
@@ -554,7 +554,7 @@
         <translation>蒙地卡羅法</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="353"/>
+        <location filename="../ui/dialog.py" line="351"/>
         <source>Monte Carlo samples</source>
         <translation>蒙地卡羅樣本數</translation>
     </message>
@@ -569,7 +569,7 @@
         <translation>Morgenstern-Price</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="528"/>
+        <location filename="../ui/dialog.py" line="529"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -594,12 +594,12 @@
         <translation>沒有材料設定標準差（c_std、phi_std、gamma_std），略過可靠度分析。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="189"/>
+        <location filename="../ui/dialog.py" line="187"/>
         <source>No pile layer: apply the shear force at the toe of every surface (v2.x mode)</source>
         <translation>無樁圖層：於每個滑動面坡趾施加抗剪力（v2.x 模式）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="518"/>
+        <location filename="../ui/dialog.py" line="519"/>
         <source>No problems found.</source>
         <translation>未發現問題。</translation>
     </message>
@@ -609,7 +609,7 @@
         <translation>無強度</translation>
     </message>
     <message>
-        <location filename="../core/analysis.py" line="143"/>
+        <location filename="../core/analysis.py" line="142"/>
         <source>No valid slip surface was found. Check the geometry, the search ranges and the material parameters.</source>
         <translation>找不到有效的滑動面。請檢查幾何、搜尋範圍與材料參數。</translation>
     </message>
@@ -634,7 +634,7 @@
         <translation>說明</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="377"/>
+        <location filename="../ui/dialog.py" line="375"/>
         <source>Number of lowest-FS surfaces stored per scenario.</source>
         <translation>每個情境保存的最低安全係數滑動面數量。</translation>
     </message>
@@ -649,7 +649,7 @@
         <translation>開啟報告</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="381"/>
+        <location filename="../ui/dialog.py" line="379"/>
         <source>Open the report when finished</source>
         <translation>完成後開啟報告</translation>
     </message>
@@ -669,7 +669,7 @@
         <translation>正在最佳化滑動面</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="146"/>
+        <location filename="../ui/dialog.py" line="144"/>
         <source>Optional</source>
         <translation>選填</translation>
     </message>
@@ -684,22 +684,22 @@
         <translation>其他參數</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="95"/>
+        <location filename="../ui/dialog.py" line="93"/>
         <source>Output</source>
         <translation>輸出</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="322"/>
+        <location filename="../ui/dialog.py" line="320"/>
         <source>Parametric scan (kh x water table depth)</source>
         <translation>參數掃描（kh × 地下水位深度）</translation>
     </message>
     <message>
-        <location filename="../core/slices.py" line="214"/>
+        <location filename="../core/slices.py" line="219"/>
         <source>Part of the slip surface lies outside the geology polygons.</source>
         <translation>部分滑動面位於地質多邊形之外。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="182"/>
+        <location filename="../ui/dialog.py" line="180"/>
         <source>Passive (factored by FS)</source>
         <translation>被動（以 FS 折減）</translation>
     </message>
@@ -714,27 +714,27 @@
         <translation>路徑搜尋</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="236"/>
+        <location filename="../ui/dialog.py" line="234"/>
         <source>Path vertices (non-circular)</source>
         <translation>路徑節點數（非圓弧）</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="69"/>
+        <location filename="../plugin.py" line="68"/>
         <source>Pick a crack point and analyse…</source>
         <translation>點選裂隙點並分析…</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="249"/>
+        <location filename="../ui/dialog.py" line="247"/>
         <source>Pick on map</source>
         <translation>在地圖上點選</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="494"/>
+        <location filename="../ui/dialog.py" line="496"/>
         <source>Pick the crack point on the map first (Analysis tab).</source>
         <translation>請先在地圖上點選裂隙點（分析設定分頁）。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="130"/>
+        <location filename="../plugin.py" line="159"/>
         <source>Piezometric line</source>
         <translation>地下水位線</translation>
     </message>
@@ -749,12 +749,12 @@
         <translation>樁 / 擋土牆</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="195"/>
+        <location filename="../ui/dialog.py" line="193"/>
         <source>Pile / wall force mode</source>
         <translation>樁 / 擋土牆作用方式</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="240"/>
+        <location filename="../qgis_io.py" line="234"/>
         <source>Pile / wall layer selected but no shear force given (field V or default value).</source>
         <translation>已選擇樁 / 擋土牆圖層，但未提供抗剪力（欄位 V 或預設值）。</translation>
     </message>
@@ -769,12 +769,12 @@
         <translation>樁 / 擋土牆</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="530"/>
+        <location filename="../ui/dialog.py" line="531"/>
         <source>Piles / walls</source>
         <translation>樁 / 擋土牆</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="142"/>
+        <location filename="../qgis_io.py" line="138"/>
         <source>Please select the geology layer.</source>
         <translation>請選擇地質圖層。</translation>
     </message>
@@ -794,7 +794,7 @@
         <translation>孔隙水壓比 ru 必須介於 0 至 1。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="223"/>
+        <location filename="../plugin.py" line="249"/>
         <source>Preparing the analysis…</source>
         <translation>正在準備分析…</translation>
     </message>
@@ -804,27 +804,27 @@
         <translation>機率分析</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="344"/>
+        <location filename="../ui/dialog.py" line="342"/>
         <source>Probabilistic analysis of the critical surface</source>
         <translation>臨界滑動面的機率分析</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="180"/>
+        <location filename="../ui/dialog.py" line="178"/>
         <source>Pull-out resistance per metre of reinforcement behind the slip surface. 0 = tensile capacity governs.</source>
         <translation>滑動面後方每公尺加勁材的拉拔阻抗。0 = 由抗拉強度控制。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="355"/>
+        <location filename="../ui/dialog.py" line="353"/>
         <source>Random seed</source>
         <translation>亂數種子</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="356"/>
+        <location filename="../ui/dialog.py" line="354"/>
         <source>Random variables are read from the geology layer fields c_std, phi_std and gamma_std (standard deviations, normal distribution).</source>
         <translation>隨機變數取自地質圖層的 c_std、phi_std 與 gamma_std 欄位（標準差，常態分布）。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="127"/>
+        <location filename="../plugin.py" line="156"/>
         <source>Reinforcement</source>
         <translation>加勁材</translation>
     </message>
@@ -834,37 +834,37 @@
         <translation>加勁材（線）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="191"/>
+        <location filename="../ui/dialog.py" line="189"/>
         <source>Reinforcement capacity T</source>
         <translation>加勁材抗拉強度 T</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="193"/>
+        <location filename="../ui/dialog.py" line="191"/>
         <source>Reinforcement force mode</source>
         <translation>加勁材作用方式</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="192"/>
+        <location filename="../ui/dialog.py" line="190"/>
         <source>Reinforcement pull-out resistance</source>
         <translation>加勁材拉拔阻抗</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="529"/>
+        <location filename="../ui/dialog.py" line="530"/>
         <source>Reinforcements</source>
         <translation>加勁材</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="94"/>
+        <location filename="../ui/dialog.py" line="92"/>
         <source>Reliability</source>
         <translation>可靠度</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="146"/>
+        <location filename="../ui/dialog.py" line="144"/>
         <source>Required</source>
         <translation>必要</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="366"/>
+        <location filename="../ui/dialog.py" line="364"/>
         <source>Results</source>
         <translation>成果</translation>
     </message>
@@ -874,12 +874,12 @@
         <translation>分析成果須由合格工程師審核。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="129"/>
+        <location filename="../plugin.py" line="158"/>
         <source>Retaining wall</source>
         <translation>擋土牆</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="103"/>
+        <location filename="../ui/dialog.py" line="101"/>
         <source>Run analysis</source>
         <translation>執行分析</translation>
     </message>
@@ -894,7 +894,7 @@
         <translation>飽和單位重遠小於單位重。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="478"/>
+        <location filename="../ui/dialog.py" line="480"/>
         <source>Save results</source>
         <translation>儲存成果</translation>
     </message>
@@ -904,7 +904,7 @@
         <translation>情境</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="93"/>
+        <location filename="../ui/dialog.py" line="91"/>
         <source>Scenarios</source>
         <translation>情境</translation>
     </message>
@@ -914,12 +914,12 @@
         <translation>搜尋密度</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="304"/>
         <source>Search grid centres</source>
         <translation>搜尋格網圓心</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="272"/>
+        <location filename="../ui/dialog.py" line="270"/>
         <source>Search limits (world coordinates)</source>
         <translation>搜尋範圍（圖面座標）</translation>
     </message>
@@ -929,12 +929,12 @@
         <translation>搜尋所用方法</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="115"/>
+        <location filename="../ui/dialog.py" line="113"/>
         <source>Section layers (x = distance, y = elevation)</source>
         <translation>剖面圖層（x = 距離，y = 高程）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="155"/>
+        <location filename="../ui/dialog.py" line="153"/>
         <source>Seismic and water</source>
         <translation>地震與地下水</translation>
     </message>
@@ -944,12 +944,12 @@
         <translation>地震係數 kh / kv</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="202"/>
+        <location filename="../plugin.py" line="228"/>
         <source>Select a layer with user-defined slip surfaces.</source>
         <translation>請選擇含使用者自訂滑動面的圖層。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="497"/>
+        <location filename="../ui/dialog.py" line="499"/>
         <source>Select the main analysis and/or the parametric scan.</source>
         <translation>請勾選主要分析和/或參數掃描。</translation>
     </message>
@@ -959,7 +959,7 @@
         <translation>變異數貢獻比例</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="185"/>
+        <location filename="../ui/dialog.py" line="183"/>
         <source>Shear resistance of a pile or retaining wall where the slip surface cuts it (v2.x 'wall force').</source>
         <translation>滑動面切過樁或擋土牆時提供的抗剪力（v2.x 的「擋土牆抗滑力」）。</translation>
     </message>
@@ -969,52 +969,52 @@
         <translation>切片資料（臨界滑動面）</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="278"/>
+        <location filename="../plugin.py" line="304"/>
         <source>Slices (critical surface)</source>
         <translation>切片（臨界滑動面）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="531"/>
+        <location filename="../ui/dialog.py" line="532"/>
         <source>Slides towards +x</source>
         <translation>向 +x 方向滑動</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="227"/>
+        <location filename="../ui/dialog.py" line="225"/>
         <source>Slides towards +x (left to right)</source>
         <translation>向 +x 方向滑動（由左至右）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="531"/>
+        <location filename="../ui/dialog.py" line="532"/>
         <source>Slides towards -x</source>
         <translation>向 -x 方向滑動</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="228"/>
+        <location filename="../ui/dialog.py" line="226"/>
         <source>Slides towards -x (right to left)</source>
         <translation>向 -x 方向滑動（由右至左）</translation>
     </message>
     <message>
-        <location filename="../core/slices.py" line="230"/>
+        <location filename="../core/slices.py" line="235"/>
         <source>Sliding mass is shallower than the minimum depth.</source>
         <translation>滑動體深度小於最小深度。</translation>
     </message>
     <message>
-        <location filename="../core/slices.py" line="160"/>
+        <location filename="../core/slices.py" line="164"/>
         <source>Sliding mass is shallower than the tension crack.</source>
         <translation>滑動體深度小於張力裂縫深度。</translation>
     </message>
     <message>
-        <location filename="../core/slices.py" line="148"/>
+        <location filename="../core/slices.py" line="150"/>
         <source>Sliding mass is too small.</source>
         <translation>滑動體過小。</translation>
     </message>
     <message>
-        <location filename="../core/slices.py" line="133"/>
+        <location filename="../core/slices.py" line="135"/>
         <source>Slip surface does not cut the slope.</source>
         <translation>滑動面未切過邊坡。</translation>
     </message>
     <message>
-        <location filename="../core/slices.py" line="208"/>
+        <location filename="../core/slices.py" line="213"/>
         <source>Slip surface is steeper than vertical at its end.</source>
         <translation>滑動面端部比垂直還陡。</translation>
     </message>
@@ -1024,12 +1024,12 @@
         <translation>滑動面由模型側邊界穿出。</translation>
     </message>
     <message>
-        <location filename="../core/slices.py" line="224"/>
+        <location filename="../core/slices.py" line="229"/>
         <source>Slip surface passes below the bottom of the model.</source>
         <translation>滑動面低於模型底部。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="204"/>
+        <location filename="../ui/dialog.py" line="202"/>
         <source>Slip surface search</source>
         <translation>滑動面搜尋</translation>
     </message>
@@ -1039,12 +1039,12 @@
         <translation>滑動面型式</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="277"/>
+        <location filename="../plugin.py" line="303"/>
         <source>Slip surfaces</source>
         <translation>滑動面</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="64"/>
+        <location filename="../plugin.py" line="63"/>
         <source>Slope Stability</source>
         <translation>邊坡穩定分析</translation>
     </message>
@@ -1054,22 +1054,22 @@
         <translation>邊坡穩定分析（極限平衡法）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="73"/>
+        <location filename="../ui/dialog.py" line="71"/>
         <source>Slope Stability Analysis (Limit Equilibrium)</source>
         <translation>邊坡穩定分析（極限平衡法）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="238"/>
+        <location filename="../ui/dialog.py" line="236"/>
         <source>Slope direction</source>
         <translation>邊坡方向</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="276"/>
+        <location filename="../plugin.py" line="302"/>
         <source>Slope stability</source>
         <translation>邊坡穩定</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="224"/>
+        <location filename="../plugin.py" line="250"/>
         <source>Slope stability analysis</source>
         <translation>邊坡穩定分析</translation>
     </message>
@@ -1084,7 +1084,7 @@
         <translation>邊坡穩定分析報告</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="66"/>
+        <location filename="../plugin.py" line="65"/>
         <source>Slope stability analysis…</source>
         <translation>邊坡穩定分析…</translation>
     </message>
@@ -1094,7 +1094,7 @@
         <translation>邊坡穩定分析成果</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="122"/>
+        <location filename="../plugin.py" line="151"/>
         <source>Slope stability sample data</source>
         <translation>邊坡穩定範例資料</translation>
     </message>
@@ -1114,7 +1114,7 @@
         <translation>標準差</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="523"/>
+        <location filename="../ui/dialog.py" line="524"/>
         <source>Strength model</source>
         <translation>強度模式</translation>
     </message>
@@ -1124,7 +1124,7 @@
         <translation>摘要</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="190"/>
+        <location filename="../ui/dialog.py" line="188"/>
         <source>Surcharge q</source>
         <translation>上載荷重 q</translation>
     </message>
@@ -1134,12 +1134,12 @@
         <translation>滑動面型式</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="231"/>
+        <location filename="../ui/dialog.py" line="229"/>
         <source>Surfaces shallower than this are ignored (0 = no limit).</source>
         <translation>小於此深度的滑動面將被忽略（0 = 不限制）。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="378"/>
+        <location filename="../ui/dialog.py" line="376"/>
         <source>Surfaces to keep</source>
         <translation>保留的滑動面數</translation>
     </message>
@@ -1149,12 +1149,12 @@
         <translation>泰勒級數法（TSPM）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="350"/>
+        <location filename="../ui/dialog.py" line="348"/>
         <source>Taylor series method (TSPM)</source>
         <translation>泰勒級數法（TSPM）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="167"/>
+        <location filename="../ui/dialog.py" line="165"/>
         <source>Tension crack</source>
         <translation>張力裂縫</translation>
     </message>
@@ -1164,12 +1164,12 @@
         <translation>張力裂縫深度</translation>
     </message>
     <message>
-        <location filename="../core/model.py" line="161"/>
+        <location filename="../core/model.py" line="159"/>
         <source>Tension crack depth cannot be negative.</source>
         <translation>張力裂縫深度不可為負值。</translation>
     </message>
     <message>
-        <location filename="../__init__.py" line="15"/>
+        <location filename="../__init__.py" line="17"/>
         <source>The Slope Stability plugin needs the Python libraries numpy and shapely, which are included in the standard QGIS installers (OSGeo4W, macOS, Flatpak). On Linux install the package python3-shapely.</source>
         <translation>邊坡穩定分析外掛需要 Python 函式庫 numpy 與 shapely，標準 QGIS 安裝程式（OSGeo4W、macOS、Flatpak）皆已內含。Linux 請安裝套件 python3-shapely。</translation>
     </message>
@@ -1184,42 +1184,42 @@
         <translation>裂隙點太接近坡趾，下方沒有邊坡。</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="185"/>
+        <location filename="../qgis_io.py" line="181"/>
         <source>The geology layer contains no valid polygons.</source>
         <translation>地質圖層中沒有有效的多邊形。</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="148"/>
+        <location filename="../qgis_io.py" line="144"/>
         <source>The geology layer is missing required fields: {0}. Required: unit_weight, cohesion, phi.</source>
         <translation>地質圖層缺少必要欄位：{0}。必要欄位：unit_weight、cohesion、phi。</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="144"/>
+        <location filename="../qgis_io.py" line="140"/>
         <source>The geology layer must be a polygon layer.</source>
         <translation>地質圖層必須為多邊形圖層。</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="150"/>
+        <location filename="../qgis_io.py" line="146"/>
         <source>The geology layer uses a geographic CRS. Coordinates are used as section coordinates (x = distance, y = elevation); make sure they are in metres.</source>
         <translation>地質圖層使用地理坐標系統。坐標將直接作為剖面坐標（x = 距離，y = 高程），請確認單位為公尺。</translation>
     </message>
     <message>
-        <location filename="../core/model.py" line="157"/>
+        <location filename="../core/model.py" line="155"/>
         <source>The model is very large. Make sure the layer uses section coordinates (x = distance, y = elevation) in metres.</source>
         <translation>模型範圍非常大。請確認圖層使用以公尺為單位的剖面坐標（x = 距離，y = 高程）。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="405"/>
+        <location filename="../ui/dialog.py" line="403"/>
         <source>The new language is used the next time the dialog is opened.</source>
         <translation>下次開啟對話框時將使用新語言。</translation>
     </message>
     <message>
-        <location filename="../core/model.py" line="165"/>
+        <location filename="../core/model.py" line="163"/>
         <source>The piezometric line is not monotonic in x; it is resampled as a function of x.</source>
         <translation>地下水位線在 x 方向非單調，已重新取樣為 x 的函數。</translation>
     </message>
     <message>
-        <location filename="../qgis_io.py" line="200"/>
+        <location filename="../qgis_io.py" line="194"/>
         <source>The water layer contains several lines; they are merged into one piezometric line.</source>
         <translation>地下水位圖層含多條線，已合併為一條地下水位線。</translation>
     </message>
@@ -1253,32 +1253,32 @@ The geology layer must be drawn in section coordinates (x = distance, y = elevat
         <translation>單位重必須大於零。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="164"/>
+        <location filename="../ui/dialog.py" line="162"/>
         <source>Unit weight of water</source>
         <translation>水的單位重</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="149"/>
+        <location filename="../ui/dialog.py" line="147"/>
         <source>Units: kPa, kN/m3, degrees, metres. Fields missing on load, reinforcement or pile layers use the default values on the Loads &amp; supports tab.</source>
         <translation>單位：kPa、kN/m3、度、公尺。載重、加勁材或樁圖層缺少的欄位，將使用「載重與支撐」分頁的預設值。</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="250"/>
+        <location filename="../plugin.py" line="276"/>
         <source>Unknown error</source>
         <translation>未知錯誤</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="123"/>
+        <location filename="../ui/dialog.py" line="121"/>
         <source>Use selected geology features only</source>
         <translation>僅使用已選取的地質圖徵</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="77"/>
+        <location filename="../plugin.py" line="76"/>
         <source>User guide</source>
         <translation>使用說明</translation>
     </message>
     <message>
-        <location filename="../plugin.py" line="125"/>
+        <location filename="../plugin.py" line="154"/>
         <source>User-defined slip surfaces</source>
         <translation>使用者自訂滑動面</translation>
     </message>
@@ -1303,7 +1303,7 @@ The geology layer must be drawn in section coordinates (x = distance, y = elevat
         <translation>變數</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="160"/>
+        <location filename="../ui/dialog.py" line="158"/>
         <source>Vertical seismic coefficient (positive = downward).</source>
         <translation>垂直地震係數（正值 = 向下）。</translation>
     </message>
@@ -1333,17 +1333,17 @@ The geology layer must be drawn in section coordinates (x = distance, y = elevat
         <translation>張力裂縫內水壓</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="332"/>
+        <location filename="../ui/dialog.py" line="330"/>
         <source>Water table depths (m)</source>
         <translation>地下水位深度（m）</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="329"/>
+        <location filename="../ui/dialog.py" line="327"/>
         <source>Water table parallel to the ground surface at these depths. Use 'dry' for no water.</source>
         <translation>地下水位與地表平行，位於這些深度。輸入 'dry' 表示無地下水。</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="528"/>
+        <location filename="../ui/dialog.py" line="529"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
@@ -1358,7 +1358,7 @@ The geology layer must be drawn in section coordinates (x = distance, y = elevat
         <translation>確定性安全係數</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="331"/>
+        <location filename="../ui/dialog.py" line="329"/>
         <source>kh values</source>
         <translation>kh 值</translation>
     </message>
@@ -1373,7 +1373,7 @@ The geology layer must be drawn in section coordinates (x = distance, y = elevat
         <translation>已計算滑動面</translation>
     </message>
     <message>
-        <location filename="../ui/dialog.py" line="284"/>
+        <location filename="../ui/dialog.py" line="282"/>
         <source>to</source>
         <translation>至</translation>
     </message>

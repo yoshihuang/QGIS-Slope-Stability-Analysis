@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """High level analysis driver (QGIS independent)."""
 
-import math
 import time
 
-from .search import Searcher, SearchSettings, Cancelled, SurfaceRecord
+from .search import Searcher, Cancelled
 from .slices import build_slices
 from .methods import solve, slice_table, CIRCULAR_ONLY, METHODS
 from .reliability import run_reliability

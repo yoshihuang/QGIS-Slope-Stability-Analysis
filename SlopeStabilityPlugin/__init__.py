@@ -9,7 +9,9 @@ def classFactory(iface):
     except ImportError as e:
         from qgis.PyQt.QtWidgets import QMessageBox
         from qgis.PyQt.QtCore import QCoreApplication
-        tr = lambda s: QCoreApplication.translate("SlopeStability", s)
+
+        def tr(s):
+            return QCoreApplication.translate("SlopeStability", s)
         QMessageBox.critical(
             None, tr("Missing dependencies"),
             tr("The Slope Stability plugin needs the Python libraries numpy and shapely, "

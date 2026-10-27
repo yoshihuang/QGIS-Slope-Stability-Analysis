@@ -58,11 +58,11 @@ def geometry_kind(layer):
     except AttributeError:
         pass
     try:
-        if gt == QgsWkbTypes.PolygonGeometry:
+        if gt == QgsWkbTypes.GeometryType.PolygonGeometry:
             return "polygon"
-        if gt == QgsWkbTypes.LineGeometry:
+        if gt == QgsWkbTypes.GeometryType.LineGeometry:
             return "line"
-        if gt == QgsWkbTypes.PointGeometry:
+        if gt == QgsWkbTypes.GeometryType.PointGeometry:
             return "point"
     except AttributeError:
         pass

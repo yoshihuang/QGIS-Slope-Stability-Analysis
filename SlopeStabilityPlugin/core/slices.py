@@ -115,7 +115,9 @@ def _below_ground_interval(model, surface, x_lo, x_hi, samples=240):
     s, e = best
     if s == 0 or e == len(xs) - 1:
         return None, tr("Slip surface leaves the model through its side boundary.")
-    f = lambda x: float(model.ground(np.array([x]))[0] - surface.y(np.array([x]))[0])
+
+    def f(x):
+        return float(model.ground(np.array([x]))[0] - surface.y(np.array([x]))[0])
     x_in = _refine_crossing(f, xs[s - 1], xs[s])
     x_out = _refine_crossing(f, xs[e], xs[e + 1])
     return (x_in, x_out), ""
@@ -152,7 +154,9 @@ def build_slices(model, surface, n_slices=30, check_bottom=True):
     crack_h = 0.0
     if model.crack_depth > 0:
         dc = model.crack_depth
-        depth = lambda x: float(model.ground(np.array([x]))[0] - surface.y(np.array([x]))[0])
+
+        def depth(x):
+            return float(model.ground(np.array([x]))[0] - surface.y(np.array([x]))[0])
         xs = np.linspace(x_in, x_out, 200)
         dd = model.ground(xs) - surface.y(xs)
         k = np.nonzero(dd >= dc)[0]
@@ -189,6 +193,7 @@ def build_slices(model, surface, n_slices=30, check_bottom=True):
     # ---- base geometry -------------------------------------------------------------
     if surface.kind == "circular":
         cx, cy, r = surface.cx, surface.cy, surface.r
+
         def ang(x):
             return np.arcsin(np.clip((x - cx) / r, -1.0, 1.0))
         tl, tr_, tm = ang(xl), ang(xr), ang(xm)
@@ -265,7 +270,7 @@ def build_slices(model, surface, n_slices=30, check_bottom=True):
     S.valid = True
     S.xl, S.xr, S.xm, S.b = xl, xr, xm, b
     S.alpha = alpha
-    S.l = lb
+    S.base_len = lb
     S.yb, S.ybl, S.ybr = yb, ybl, ybr
     S.ground_m, S.gl, S.gr = ground_m, gl, gr
     S.yc = 0.5 * (ground_m + yb)
@@ -378,6 +383,7 @@ def _reinforcement_force(rf, geom, P, mass):
     b = np.array(coords[-1], dtype=float)
     p = np.array([P.x, P.y])
     # which end lies outside the sliding mass (the anchored end)?
+
     def outside(pt):
         if mass is None:
             return True

@@ -8,7 +8,7 @@ Writing: analysis results -> rows -> memory / GeoPackage layers with styles.
 import math
 import os
 
-from qgis.core import (QgsFeature, QgsGeometry, QgsPointXY, QgsVectorLayer,
+from qgis.core import (Qgis, QgsFeature, QgsGeometry, QgsPointXY, QgsVectorLayer,
                        QgsProject, QgsVectorFileWriter, QgsFields,
                        QgsCoordinateTransformContext, QgsSymbol,
                        QgsGraduatedSymbolRenderer, QgsRendererRange,
@@ -69,11 +69,9 @@ def _field_map(layer):
 def _is_null(v):
     if v is None:
         return True
-    try:
-        if hasattr(v, "isNull") and v.isNull():
-            return True
-    except Exception:
-        pass
+    is_null = getattr(v, "isNull", None)
+    if callable(is_null) and is_null():
+        return True
     return isinstance(v, str) and v.strip() in ("", "NULL", "null", "None")
 
 
@@ -96,12 +94,10 @@ def _attr(feat, fmap, key, default=None):
 
 def _shapely(geom):
     g = QgsGeometry(geom)
-    try:
+    if not g.isEmpty():
         ab = g.get()
         ab.dropZValue()
         ab.dropMValue()
-    except Exception:
-        pass
     return shp_wkt.loads(g.asWkt())
 
 
@@ -191,10 +187,8 @@ def build_model(layers, opts, selected_only=False):
         lines = [_shapely(f.geometry()) for f in wl.getFeatures() if not f.geometry().isEmpty()]
         if lines:
             u = unary_union(lines)
-            try:
-                u = linemerge(u) if u.geom_type == "MultiLineString" else u
-            except Exception:
-                pass
+            if u.geom_type == "MultiLineString":
+                u = linemerge(u)
             m.piezo = u
             if u.geom_type == "MultiLineString":
                 msgs.append(("warning", tr("The water layer contains several lines; they are merged into one piezometric line.")))
@@ -475,18 +469,12 @@ def _graduated(layer, width=0.3, point_size=None):
         sym.setColor(QColor(col))
         if point_size is not None:
             sym.setSize(point_size)
-        else:
-            try:
-                sym.setWidth(width)
-            except Exception:
-                pass
+        elif hasattr(sym, "setWidth"):
+            sym.setWidth(width)
         ranges.append(QgsRendererRange(lo, hi, sym, label))
     r = QgsGraduatedSymbolRenderer("fs", ranges)
-    try:
-        r.setOrderBy(QgsFeatureRequest.OrderBy([QgsFeatureRequest.OrderByClause("fs", False)]))
-        r.setOrderByEnabled(True)
-    except Exception:
-        pass
+    r.setOrderBy(QgsFeatureRequest.OrderBy([QgsFeatureRequest.OrderByClause("fs", False)]))
+    r.setOrderByEnabled(True)
     layer.setRenderer(r)
 
 
@@ -504,10 +492,7 @@ def _fs_labels(layer, expr, size=11, color="#c0392b", line=True):
     fmt.setBuffer(buf)
     s.setFormat(fmt)
     if line:
-        try:
-            s.placement = enum(Qgis, "LabelPlacement", "Line")
-        except Exception:
-            pass
+        s.placement = enum(Qgis, "LabelPlacement", "Line")
     layer.setLabeling(QgsVectorLayerSimpleLabeling(s))
     layer.setLabelsEnabled(True)
 

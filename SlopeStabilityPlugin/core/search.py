@@ -12,7 +12,6 @@ Circular searches can be followed by Nelder-Mead optimisation of
 """
 
 import math
-import random
 import numpy as np
 
 from .slices import CircularSurface, PolylineSurface, build_slices
@@ -84,7 +83,8 @@ class Searcher(object):
         self.n_eval = 0
         self.n_valid = 0
         self.center_grid = []          # (cx_world, cy, min FS)
-        self.rng = random.Random(settings.seed)
+        # numpy generator: reproducible random trial paths (not used for security)
+        self.rng = np.random.default_rng(settings.seed)
         self._xp = None                # crack point (model x) for "point" searches
         method = settings.method
         if settings.surface_type == "path" and method in CIRCULAR_ONLY:
@@ -524,9 +524,11 @@ def _extend_ends(xs, ys, m):
             nx_ = xs[i] + dx / L * ext
             ny_ = ys[i] + dy / L * ext
             if end == 0:
-                xs = np.concatenate([[nx_], xs]); ys = np.concatenate([[ny_], ys])
+                xs = np.concatenate([[nx_], xs])
+                ys = np.concatenate([[ny_], ys])
             else:
-                xs = np.concatenate([xs, [nx_]]); ys = np.concatenate([ys, [ny_]])
+                xs = np.concatenate([xs, [nx_]])
+                ys = np.concatenate([ys, [ny_]])
     return xs, ys
 
 
@@ -568,9 +570,13 @@ def nelder_mead(f, x0, steps, max_eval=200, tol=1e-5, check=None):
         if abs(vals[-1] - vals[0]) < tol and max(np.max(np.abs(p - pts[0])) for p in pts) < 1e-3 * max(steps):
             break
         c = np.mean(pts[:-1], axis=0)
-        xr = c + (c - pts[-1]); fr = f(xr); evals += 1
+        xr = c + (c - pts[-1])
+        fr = f(xr)
+        evals += 1
         if fr < vals[0]:
-            xe = c + 2.0 * (c - pts[-1]); fe = f(xe); evals += 1
+            xe = c + 2.0 * (c - pts[-1])
+            fe = f(xe)
+            evals += 1
             if fe < fr:
                 pts[-1], vals[-1] = xe, fe
             else:
@@ -578,12 +584,15 @@ def nelder_mead(f, x0, steps, max_eval=200, tol=1e-5, check=None):
         elif fr < vals[-2]:
             pts[-1], vals[-1] = xr, fr
         else:
-            xc = c + 0.5 * (pts[-1] - c); fc = f(xc); evals += 1
+            xc = c + 0.5 * (pts[-1] - c)
+            fc = f(xc)
+            evals += 1
             if fc < vals[-1]:
                 pts[-1], vals[-1] = xc, fc
             else:
                 for i in range(1, len(pts)):
                     pts[i] = pts[0] + 0.5 * (pts[i] - pts[0])
-                    vals[i] = f(pts[i]); evals += 1
+                    vals[i] = f(pts[i])
+                    evals += 1
     i = int(np.argmin(vals))
     return pts[i], vals[i]

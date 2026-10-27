@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 """Main analysis dialog."""
 
-import os
 
-from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QComboBox,
                                  QDoubleSpinBox, QSpinBox, QPushButton, QFileDialog,
                                  QGroupBox, QFormLayout, QLineEdit, QCheckBox, QTabWidget,
                                  QWidget, QTextBrowser, QGridLayout, QMessageBox,
-                                 QDialogButtonBox, QScrollArea)
+                                 QScrollArea)
 from qgis.core import QgsSettings
 from qgis.gui import QgsMapLayerComboBox
 
@@ -425,21 +423,25 @@ class SlopeStabilityDialog(QDialog):
         x0, x1, y0, y1 = e.xMinimum(), e.xMaximum(), e.yMinimum(), e.yMaximum()
         w = x1 - x0
         h = y1 - y0
-        self.sp_e0.setValue(x0); self.sp_e1.setValue(x0 + 0.5 * w)
-        self.sp_x0.setValue(x0 + 0.5 * w); self.sp_x1.setValue(x1)
-        self.sp_gx0.setValue(x0 + 0.1 * w); self.sp_gx1.setValue(x1 - 0.1 * w)
-        self.sp_gy0.setValue(y1 + 0.1 * h); self.sp_gy1.setValue(y1 + 1.5 * h)
+        self.sp_e0.setValue(x0)
+        self.sp_e1.setValue(x0 + 0.5 * w)
+        self.sp_x0.setValue(x0 + 0.5 * w)
+        self.sp_x1.setValue(x1)
+        self.sp_gx0.setValue(x0 + 0.1 * w)
+        self.sp_gx1.setValue(x1 - 0.1 * w)
+        self.sp_gy0.setValue(y1 + 0.1 * h)
+        self.sp_gy1.setValue(y1 + 1.5 * h)
 
     # ------------------------------------------------------------- crack point
     def set_crack_point(self, pt, crs=None):
         """Set the crack point from a map point (``crs`` = its CRS)."""
         lyr = self.cb_geo.currentLayer()
         if crs is not None and lyr is not None and crs.isValid() and lyr.crs().isValid() and crs != lyr.crs():
-            from qgis.core import QgsCoordinateTransform, QgsProject
+            from qgis.core import QgsCoordinateTransform, QgsProject, QgsCsException, QgsMessageLog
             try:
                 pt = QgsCoordinateTransform(crs, lyr.crs(), QgsProject.instance()).transform(pt)
-            except Exception:
-                pass
+            except QgsCsException as e:
+                QgsMessageLog.logMessage(u"Crack point CRS transform failed: %s" % e, "Slope Stability")
         self.sp_cx.setValue(pt.x())
         self.sp_cy.setValue(pt.y())
         self._crack_picked = True
@@ -501,7 +503,6 @@ class SlopeStabilityDialog(QDialog):
 
     def check_inputs(self):
         from ..qgis_io import build_model, InputError
-        from ..core.methods import METHODS
         cfg = self.get_config()
         try:
             model, user, msgs = build_model(cfg["layers"], cfg["opts"], cfg["selected_only"])

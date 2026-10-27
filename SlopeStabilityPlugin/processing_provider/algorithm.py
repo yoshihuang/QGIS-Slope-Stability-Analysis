@@ -30,14 +30,14 @@ def _num_double():
     nt = getattr(Qgis, "ProcessingNumberParameterType", None)
     if nt is not None:
         return nt.Double
-    return QgsProcessingParameterNumber.Double
+    return QgsProcessingParameterNumber.Type.Double
 
 
 def _num_int():
     nt = getattr(Qgis, "ProcessingNumberParameterType", None)
     if nt is not None:
         return nt.Integer
-    return QgsProcessingParameterNumber.Integer
+    return QgsProcessingParameterNumber.Type.Integer
 
 
 def _wkb(name):
@@ -130,7 +130,9 @@ class SlopeStabilityAlgorithm(QgsProcessingAlgorithm):
     def processAlgorithm(self, parameters, context, feedback):
         from ..qgis_io import (build_model, InputError, result_rows, make_fields, make_feature,
                                OUTPUTS)
-        lay = lambda k: self.parameterAsVectorLayer(parameters, k, context)
+
+        def lay(k):
+            return self.parameterAsVectorLayer(parameters, k, context)
         layers = {"geology": lay(self.GEOLOGY), "water": lay(self.WATER), "loads": lay(self.LOADS),
                   "reinforcement": lay(self.REINF), "piles": lay(self.PILES), "surfaces": lay(self.SURFACES)}
         opts = {

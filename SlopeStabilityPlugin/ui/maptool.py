@@ -39,10 +39,7 @@ class CrackPointTool(QgsMapToolEmitPoint):
             self.marker.setColor(QColor("#c0392b"))
             self.marker.setIconSize(14)
             self.marker.setPenWidth(3)
-            try:
-                self.marker.setIconType(QgsVertexMarker.IconType.ICON_TRIANGLE)
-            except AttributeError:
-                self.marker.setIconType(QgsVertexMarker.ICON_X)
+            self.marker.setIconType(QgsVertexMarker.IconType.ICON_TRIANGLE)
         self.marker.setCenter(pt)
         self.marker.show()
 

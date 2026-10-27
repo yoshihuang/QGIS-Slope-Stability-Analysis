@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Verification of the computation core (run: python -m pytest tests  or  python tests/test_benchmarks.py).
+"""Verification of the computation core (run from the repository root: python tests/test_benchmarks.py).
 
 Needs numpy and shapely only (no QGIS)."""
 import math, os, sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import numpy as np
 from shapely.geometry import Polygon, LineString
 from SlopeStabilityPlugin.core.model import SlopeModel

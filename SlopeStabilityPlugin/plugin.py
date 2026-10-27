@@ -85,6 +85,7 @@ class SlopeStabilityPlugin(object):
         self.actions.append(action)
 
     def unload(self):
+        self._release_plugin_files()
         if self.crack_tool is not None:
             try:
                 self.iface.mapCanvas().unsetMapTool(self.crack_tool)
@@ -116,9 +117,43 @@ class SlopeStabilityPlugin(object):
                 QDesktopServices.openUrl(QUrl.fromLocalFile(p))
                 return
 
+    def _sample_folder(self):
+        """Copy the sample data out of the plugin folder and return that folder.
+
+        Layers opened directly from the plugin folder keep their files open
+        (GDAL), which on Windows prevents QGIS from deleting the folder when
+        the plugin is upgraded or uninstalled."""
+        import shutil
+        src = os.path.join(PLUGIN_DIR, "testdata")
+        dst = os.path.join(QgsApplication.qgisSettingsDirPath(), "slope_stability_sample_data")
+        try:
+            os.makedirs(dst, exist_ok=True)
+            for fn in os.listdir(src):
+                a, b = os.path.join(src, fn), os.path.join(dst, fn)
+                if os.path.isfile(a) and (not os.path.exists(b) or os.path.getmtime(b) < os.path.getmtime(a)):
+                    shutil.copy2(a, b)
+            return dst
+        except Exception:
+            return src
+
+    def _release_plugin_files(self):
+        """Remove project layers that read files inside the plugin folder."""
+        root = os.path.normcase(os.path.abspath(PLUGIN_DIR))
+        prj = QgsProject.instance()
+        ids = []
+        for lid, lyr in prj.mapLayers().items():
+            try:
+                path = lyr.source().split("|")[0]
+                if path and os.path.normcase(os.path.abspath(path)).startswith(root):
+                    ids.append(lid)
+            except Exception:
+                pass
+        if ids:
+            prj.removeMapLayers(ids)
+
     def load_sample_data(self):
         from qgis.core import QgsLineSymbol, QgsSingleSymbolRenderer
-        d = os.path.join(PLUGIN_DIR, "testdata")
+        d = self._sample_folder()
         group = QgsProject.instance().layerTreeRoot().insertGroup(0, tr("Slope stability sample data"))
         # (file, layer name, line style) - listed top to bottom in the layer tree
         samples = (
